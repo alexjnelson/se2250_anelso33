@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-   public static PlayerMovement instance;
+    public static PlayerMovement instance;
 
     public const float defaultSpeed = 10;
     public float speed;
@@ -21,8 +21,6 @@ public class PlayerMovement : MonoBehaviour
     public int outfit;
 
     public BattleItem basicMelee, basicRanged;
-
-    
 
     // Start is called before the first frame update
     void Start()
@@ -52,10 +50,12 @@ public class PlayerMovement : MonoBehaviour
                 animator.Play("Attacking");
                 gameObject.GetComponent<Combat>().Attack();
             }
-            else {
+            else
+            {
                 animator.SetBool("attacking", false);
             }
         }
+        
         else if (outfit == 1){
             GetComponent<BattleItemScript>().setItem(basicRanged);
             
@@ -64,17 +64,20 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("left shift")){
-            speed = defaultSpeed*1.8f;
+        if (Input.GetKey("left shift"))
+        {
+            speed = defaultSpeed * 1.8f;
         }
-        else {
+        else
+        {
             speed = defaultSpeed;
         }
     }
 
     void updateAnimationAndMove()
     {
-        if (change != Vector3.zero) {
+        if (change != Vector3.zero)
+        {
             MoveCharacter();
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
@@ -82,7 +85,8 @@ public class PlayerMovement : MonoBehaviour
 
             facingDirection = change;
         }
-        else {
+        else
+        {
             animator.SetBool("moving", false);
         }
     }
