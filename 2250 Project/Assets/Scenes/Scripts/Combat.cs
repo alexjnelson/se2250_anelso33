@@ -5,7 +5,6 @@ using UnityEngine;
 public class Combat : MonoBehaviour
 {
     public GameObject AttackHitBox, AttackHitBoxRanged;
-    private PlayerMovement playerScript;
     private Animator anim;
     public Vector3 facingDirection;
     private double _attackCooldownTime;
@@ -21,13 +20,11 @@ public class Combat : MonoBehaviour
         rangeZ = _item.item.rangeZ;
         _attackCooldownTime = 1.0 / _item.item.attackSpeed;
         attackCooldown = 0;
-
-        playerScript = PlayerMovement.instance;
-        facingDirection = gameObject.CompareTag("Player") ? playerScript.facingDirection : gameObject.GetComponent<Enemy>().facingDirection;
     }
 
     void Update(){
         attackCooldown -= Time.deltaTime;
+        facingDirection = gameObject.CompareTag("Player") ? GetComponent<PlayerMovement>().facingDirection : GetComponent<Enemy>().facingDirection;
     }
 
     public void Attack()
