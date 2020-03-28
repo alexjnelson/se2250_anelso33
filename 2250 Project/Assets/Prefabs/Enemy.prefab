@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866feebab0b6190409ea40fe2f5988de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 6
   facingDirection: {x: 0, y: 0, z: 0}
 --- !u!50 &547669218310876973
 Rigidbody2D:
@@ -196,6 +196,7 @@ MonoBehaviour:
   AttackHitBoxRanged: {fileID: 5503020888547925354, guid: fd8721ab881b4114c9268c44795139bb,
     type: 3}
   facingDirection: {x: 0, y: 0, z: 0}
+  attackCooldown: 0
 --- !u!114 &114500669907350688
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -120,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0030238032, y: -0.49268723}
+  m_Offset: {x: -0.0030238032, y: -0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -131,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5222391, y: 0.3012867}
+  m_Size: {x: 0.5222391, y: 0.4}
   m_EdgeRadius: 0
 --- !u!95 &676147035668915921
 Animator:
@@ -187,6 +187,7 @@ MonoBehaviour:
   AttackHitBoxRanged: {fileID: 5503020888547925354, guid: fd8721ab881b4114c9268c44795139bb,
     type: 3}
   facingDirection: {x: 0, y: 0, z: 0}
+  attackCooldown: 0
 --- !u!114 &7045621937987254343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,3 +213,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f76c33c8e9fb6245a8665341b91b7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleItem: {fileID: 0}
