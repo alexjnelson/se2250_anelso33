@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 292906893239280599}
   - component: {fileID: 676147035668915921}
   - component: {fileID: 7045621937711146960}
+  - component: {fileID: 114009005595913012}
   - component: {fileID: 7045621937987254343}
   - component: {fileID: 7045621937987254342}
   m_Layer: 0
@@ -164,15 +165,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  AttackHitBox: {fileID: 1793218001936533576, guid: 3e034c9ad2158aa4f8d4c76a13283cab,
-    type: 3}
-  AttackHitBoxRanged: {fileID: 5503020888547925354, guid: fd8721ab881b4114c9268c44795139bb,
-    type: 3}
   playerBag: {fileID: 0}
   expBar: {fileID: 0}
   coords: {fileID: 0}
   facingDirection: {x: 0, y: 0, z: 0}
   outfit: 0
+--- !u!114 &114009005595913012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7045621937987254344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13de5b2a257eca347a53f490c5f4212d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackHitBox: {fileID: 1793218001936533576, guid: 3e034c9ad2158aa4f8d4c76a13283cab,
+    type: 3}
+  AttackHitBoxRanged: {fileID: 5503020888547925354, guid: fd8721ab881b4114c9268c44795139bb,
+    type: 3}
+  facingDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &7045621937987254343
 MonoBehaviour:
   m_ObjectHideFlags: 0

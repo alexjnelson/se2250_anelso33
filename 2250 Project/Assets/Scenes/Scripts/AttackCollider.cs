@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackCollider : MonoBehaviour
 {
-    public int damage;
+    public float damage;
     protected double _attackTime;
 
     protected virtual void Start(){

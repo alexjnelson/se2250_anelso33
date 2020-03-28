@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 547669218310876972}
   - component: {fileID: 547669218310876968}
   - component: {fileID: 9038629542060561488}
+  - component: {fileID: 114803290552512186}
+  - component: {fileID: 114500669907350688}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -96,12 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866feebab0b6190409ea40fe2f5988de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTrigger: {fileID: 0}
-  attackDamage: 20
-  rangeX: 2
-  rangeZ: 2
-  AttackHitBox: {fileID: 1793218001936533576, guid: 3e034c9ad2158aa4f8d4c76a13283cab,
-    type: 3}
+  speed: 0
   facingDirection: {x: 0, y: 0, z: 0}
 --- !u!50 &547669218310876973
 Rigidbody2D:
@@ -123,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &547669218310876972
 Animator:
   serializedVersion: 3
@@ -169,7 +166,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -178,7 +175,37 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1.3}
   m_EdgeRadius: 0
+--- !u!114 &114803290552512186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547669218310876963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13de5b2a257eca347a53f490c5f4212d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackHitBox: {fileID: 1793218001936533576, guid: 3e034c9ad2158aa4f8d4c76a13283cab,
+    type: 3}
+  AttackHitBoxRanged: {fileID: 5503020888547925354, guid: fd8721ab881b4114c9268c44795139bb,
+    type: 3}
+  facingDirection: {x: 0, y: 0, z: 0}
+--- !u!114 &114500669907350688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547669218310876963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f76c33c8e9fb6245a8665341b91b7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleItem: {fileID: 0}

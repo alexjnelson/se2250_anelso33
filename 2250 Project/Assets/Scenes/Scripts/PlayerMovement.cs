@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D myRigidbody;
     private Vector3 change;
     private Animator animator;
-    public GameObject AttackHitBox, AttackHitBoxRanged;
 
     public Bag playerBag;
     public ExpBar expBar;
@@ -42,10 +41,10 @@ public class PlayerMovement : MonoBehaviour
         updateAnimationAndMove();
 
         if (outfit == 0){
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Combat>().attackCooldown <= 0) {
                 animator.SetBool("attacking", true);
                 animator.Play("Attacking");
-                Attack();
+                gameObject.GetComponent<Combat>().Attack();
             }
             else {
                 animator.SetBool("attacking", false);
@@ -53,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (outfit == 1){
             if (Input.GetKeyDown(KeyCode.Space)) {
-                AttackRanged();
+                gameObject.GetComponent<Combat>().AttackRanged();
             }
         }
 
@@ -84,34 +83,6 @@ public class PlayerMovement : MonoBehaviour
     {
         myRigidbody.MovePosition(transform.position + change * speed * Time.deltaTime);
     }
-
-    void Attack()
-    {
-        BattleItemScript item = gameObject.GetComponent<BattleItemScript>();
-        int rangeX = item.item.rangeX, rangeZ = item.item.rangeZ;
-
-        GameObject attack = Instantiate(AttackHitBox, gameObject.transform.position + facingDirection, Quaternion.identity); //spawns a boxcollider in the attack range
-        attack.GetComponent<AttackCollider>().damage = item.item.damage;
-        attack.GetComponent<BoxCollider2D>().size = new Vector3(rangeX, 1, rangeZ);
-        attack.tag = "PlayerAttack";
-    }
-
-    void AttackRanged(){
-        BattleItemScript item = gameObject.GetComponent<BattleItemScript>();
-        int rangeX = item.item.rangeX, rangeZ = item.item.rangeZ;
-
-        GameObject attack = Instantiate(AttackHitBoxRanged, gameObject.transform.position + facingDirection, Quaternion.identity); //spawns a boxcollider in the attack range
-        AttackColliderRanged hitbox = attack.GetComponent<AttackColliderRanged>();
-        
-        hitbox.damage = item.item.damage/2;
-        hitbox.speed = 20;
-        hitbox.direction = facingDirection;
-
-        attack.GetComponent<BoxCollider2D>().size = new Vector3(rangeX, 1, rangeZ);
-        attack.tag = "PlayerAttack";
-    }
-
-
 
 
     public void LevelUp()

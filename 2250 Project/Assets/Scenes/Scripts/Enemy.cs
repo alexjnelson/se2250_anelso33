@@ -5,32 +5,58 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private bool _inCombat;
-    public EnemyTrigger enemyTrigger;
-    public int attackDamage = 20, rangeX = 2, rangeZ = 2;
-    public GameObject AttackHitBox;
+    private Rigidbody2D myRigidbody;
+    public float speed;
+    private PlayerMovement playerScript;
+    private BattleItemScript _item;
+    
+    //private Animator animator;
 
     public Vector3 facingDirection;
+    private Vector3 change;
     
     void Start()
     {
+        _item = gameObject.GetComponent<BattleItemScript>();
+        myRigidbody = GetComponent<Rigidbody2D>();
         gameObject.tag="Enemy";
+        speed = 6;
     }
 
     
     void Update()
     {
-
+        playerScript = PlayerMovement.instance;
+        MoveToPlayer();
     }
 
-
-    void Attack()
+    void MoveToPlayer()
     {
-        GameObject attack = Instantiate(AttackHitBox, gameObject.transform.position + facingDirection, Quaternion.identity); 
-        attack.GetComponent<AttackCollider>().damage = attackDamage;
-        attack.GetComponent<BoxCollider2D>().size = new Vector3(rangeX, 1, rangeZ);
-        attack.tag = "EnemyAttack";
+        Vector3 playerPosition = playerScript.gameObject.transform.position;
+        change = Vector3.Normalize(playerPosition - transform.position);
+
+        if (CheckAttack(playerPosition)){
+            facingDirection = change;
+        }
+        else if (change != Vector3.zero) {
+            myRigidbody.MovePosition(transform.position + change * speed * Time.deltaTime);
+            // animator.SetFloat("moveX", change.x);
+            // animator.SetFloat("moveY", change.y);
+            // animator.SetBool("moving", true);
+
+            facingDirection = change;
+        }
+        else {
+            //animator.SetBool("moving", false);
+        }
     }
 
+    protected virtual bool CheckAttack(Vector3 playerPosition){
+        if (Vector3.Distance(playerPosition, transform.position) <  1.3){
+            GetComponent<Combat>().Attack();
+            return true;
+        }
+        else { return false; }
+    }
 
 }

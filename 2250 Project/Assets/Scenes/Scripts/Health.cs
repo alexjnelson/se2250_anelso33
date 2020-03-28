@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
         }        
     }
 
-    public void Damage(int dmg){
+    public void Damage(float dmg){
         this.health-=dmg;
     }
 

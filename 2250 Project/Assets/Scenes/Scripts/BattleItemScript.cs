@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleItemScript : MonoBehaviour
 {
-    private BattleItem battleItem;
+    public BattleItem battleItem;
 
     public void setItem(BattleItem battleItem){
         this.battleItem = battleItem;
