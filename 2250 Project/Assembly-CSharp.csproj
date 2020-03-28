@@ -70,6 +70,8 @@
      <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\StarterHouse_Outside.cs" />
      <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\StartingRoom_DownStairs.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Bag.cs" />
+     <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\BasicMelee.cs" />
+     <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\BasicRanged.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\BattleItem.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\ExpBar.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Item.cs" />

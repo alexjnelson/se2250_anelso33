@@ -5,8 +5,7 @@ using UnityEngine;
 public class BattleItem : Item
 {
     public static string [] attackTypes = {"stab", "slice", "throw"};
-    public float damage, rangeX, rangeZ;
-    public float attackSpeed; // attack speed is how many times the attack can be used per second
+    public float damage, rangeX, rangeZ, attackSpeed; // attack speed is how many times the attack can be used per second
 
     public BattleItem(){
         damage = 20f;

@@ -15,15 +15,16 @@ public class Combat : MonoBehaviour
 
 
     void Start(){
-        _item = gameObject.GetComponent<BattleItemScript>();
-        rangeX = _item.item.rangeX;
-        rangeZ = _item.item.rangeZ;
-        _attackCooldownTime = 1.0 / _item.item.attackSpeed;
         attackCooldown = 0;
     }
 
     void Update(){
-        attackCooldown -= Time.deltaTime;
+         _item = gameObject.GetComponent<BattleItemScript>();
+        rangeX = _item.item.rangeX;
+        rangeZ = _item.item.rangeZ;
+        _attackCooldownTime = 1.0 / _item.item.attackSpeed;
+
+        attackCooldown = attackCooldown <= 0 ? 0 : attackCooldown - Time.deltaTime;
         facingDirection = gameObject.CompareTag("Player") ? GetComponent<PlayerMovement>().facingDirection : GetComponent<Enemy>().facingDirection;
     }
 

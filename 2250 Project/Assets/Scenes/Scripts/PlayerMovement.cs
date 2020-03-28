@@ -20,12 +20,16 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 facingDirection;
     public int outfit;
 
+    public BattleItem basicMelee, basicRanged;
+
     
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+        basicMelee = new BasicMelee();
+        basicRanged = new BasicRanged();
 
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -41,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
         updateAnimationAndMove();
 
         if (outfit == 0){
+            GetComponent<BattleItemScript>().setItem(basicMelee);
+
             if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Combat>().attackCooldown <= 0) {
                 animator.SetBool("attacking", true);
                 animator.Play("Attacking");
@@ -51,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         else if (outfit == 1){
+            GetComponent<BattleItemScript>().setItem(basicRanged);
+            
             if (Input.GetKeyDown(KeyCode.Space)) {
                 gameObject.GetComponent<Combat>().AttackRanged();
             }
