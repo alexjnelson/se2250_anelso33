@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-   public static PlayerMovement instance;
+    public static PlayerMovement instance;
 
     public const float defaultSpeed = 10;
     public float speed;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 facingDirection;
     public int outfit;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,33 +40,41 @@ public class PlayerMovement : MonoBehaviour
         change.y = Input.GetAxisRaw("Vertical");
         updateAnimationAndMove();
 
-        if (outfit == 0){
-            if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Combat>().attackCooldown <= 0) {
+        if (outfit == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Combat>().attackCooldown <= 0)
+            {
                 animator.SetBool("attacking", true);
                 animator.Play("Attacking");
                 gameObject.GetComponent<Combat>().Attack();
             }
-            else {
+            else
+            {
                 animator.SetBool("attacking", false);
             }
         }
-        else if (outfit == 1){
-            if (Input.GetKeyDown(KeyCode.Space)) {
+        else if (outfit == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 gameObject.GetComponent<Combat>().AttackRanged();
             }
         }
 
-        if (Input.GetKey("left shift")){
-            speed = defaultSpeed*1.8f;
+        if (Input.GetKey("left shift"))
+        {
+            speed = defaultSpeed * 1.8f;
         }
-        else {
+        else
+        {
             speed = defaultSpeed;
         }
     }
 
     void updateAnimationAndMove()
     {
-        if (change != Vector3.zero) {
+        if (change != Vector3.zero)
+        {
             MoveCharacter();
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
@@ -74,7 +82,8 @@ public class PlayerMovement : MonoBehaviour
 
             facingDirection = change;
         }
-        else {
+        else
+        {
             animator.SetBool("moving", false);
         }
     }
