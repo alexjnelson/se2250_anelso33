@@ -11,28 +11,47 @@ public class Enemy : MonoBehaviour
     private BattleItemScript _item;
     private float _trackingDistance = 8;
     private double _wanderTimer;
+
+    public Item droppedItem;
+    public Item LevelOrb, SmallPotion, BigPotion;
     
     //private Animator animator;
 
     public Vector3 facingDirection;
-    private Vector3 change, wanderDirection;
+    private Vector3 change, wanderDirection, currentPosition;
     
     void Start()
     {
         _item = gameObject.GetComponent<BattleItemScript>();
         myRigidbody = GetComponent<Rigidbody2D>();
         gameObject.tag="Enemy";
+        GenerateDroppedItem();
 
         _wanderTimer = 0;
+    }
+
+    virtual protected void GenerateDroppedItem (){
+        int r = Random.Range(0, 99);
+
+        if (r < 99){
+            droppedItem = LevelOrb;
+        }
+        else if (r < 10){
+            droppedItem = BigPotion;
+        }
+        else if (r < 30){
+            droppedItem = SmallPotion;
+        }
     }
 
     
     void Update()
     {
         playerScript = PlayerMovement.instance;
-        Vector3 playerPosition = playerScript.gameObject.transform.position;
+        currentPosition = GetComponent<BoxCollider2D>().transform.position;
+        Vector3 playerPosition = GameObject.FindWithTag("Player") != null ? playerScript.gameObject.transform.position : currentPosition;
 
-        if (Vector3.Distance(playerPosition, transform.position) < _trackingDistance){
+        if (Vector3.Distance(playerPosition, currentPosition) < _trackingDistance){
             MoveToPlayer(playerPosition);
             _wanderTimer = 0;
         }
@@ -50,19 +69,19 @@ public class Enemy : MonoBehaviour
         }
         else {
             _wanderTimer -= Time.deltaTime;
-            myRigidbody.MovePosition(transform.position + wanderDirection * speed * Time.deltaTime);
+            myRigidbody.MovePosition(currentPosition + wanderDirection * speed * Time.deltaTime);
         }
     }
 
     void MoveToPlayer(Vector3 playerPosition)
     {
-        change = Vector3.Normalize(playerPosition - transform.position);
+        change = Vector3.Normalize(playerPosition - currentPosition);
 
         if (CheckAttack(playerPosition)){
             facingDirection = change;
         }
         else if (change != Vector3.zero) {
-            myRigidbody.MovePosition(transform.position + change * speed * Time.deltaTime);
+            myRigidbody.MovePosition(currentPosition + change * speed * Time.deltaTime);
             // animator.SetFloat("moveX", change.x);
             // animator.SetFloat("moveY", change.y);
             // animator.SetBool("moving", true);
@@ -75,7 +94,7 @@ public class Enemy : MonoBehaviour
     }
 
     protected virtual bool CheckAttack(Vector3 playerPosition) {
-        if (Vector3.Distance(playerPosition, transform.position) <  1.3){
+        if (Vector3.Distance(playerPosition, currentPosition) <  1.3 && GameObject.FindWithTag("Player") != null){
             GetComponent<Combat>().Attack();
             return true;
         }
@@ -85,8 +104,12 @@ public class Enemy : MonoBehaviour
     void OnCollisionEnter2D (Collision2D collision) {
         if (_wanderTimer > 0) { 
             _wanderTimer = 0; 
-             myRigidbody.MovePosition(transform.position - wanderDirection * speed * 0.75f * Time.deltaTime);
+             myRigidbody.MovePosition(currentPosition - wanderDirection * speed * 0.75f * Time.deltaTime);
         }
+    }
+
+    void OnDestroy(){
+        playerScript.playerBag.addItem(droppedItem);
     }
 
 }

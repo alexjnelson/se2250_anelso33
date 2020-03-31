@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class BattleItem : Item
 {
     public static string [] attackTypes = {"stab", "slice", "throw"};
@@ -12,5 +13,9 @@ public class BattleItem : Item
         rangeX = 2f;
         rangeZ = 2f;
         attackSpeed = 0.8f;
+    }
+
+    void Use(){
+        PlayerMovement.instance.gameObject.GetComponent<BattleItemScript>().setItem(this);
     }
 }

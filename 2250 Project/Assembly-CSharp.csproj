@@ -70,11 +70,11 @@
      <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\StarterHouse_Outside.cs" />
      <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\StartingRoom_DownStairs.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Bag.cs" />
-     <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\BasicMelee.cs" />
-     <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\BasicRanged.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\BattleItem.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\ExpBar.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Item.cs" />
+     <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\LevelOrb.cs" />
+     <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Potion.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/workspace/GitHub/se2250_anelso33/2250 Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

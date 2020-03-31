@@ -15,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public Bag playerBag;
     public ExpBar expBar;
     public GameObject coords;
-    private int _level = 0, _skillTokens = 0, _attack = 3, _defense = 3;
+    
+    public int _level = 0, _skillTokens = 0, _attack = 0, _defense = 0;
 
     public Vector3 facingDirection;
     public int outfit;
@@ -26,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         instance = this;
-        basicMelee = new BasicMelee();
-        basicRanged = new BasicRanged();
 
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -101,9 +100,6 @@ public class PlayerMovement : MonoBehaviour
     {
         this._level++;
         this._skillTokens++;
-
-        this._attack += _level;
-        this._defense += _level;
     }
 
     public int GetLevel()
