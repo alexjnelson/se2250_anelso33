@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public ExpBar expBar;
     public GameObject coords;
     
-    public int level = 0, skillTokens = 0, attack = 0, defense = 0;
+    public int level = 0, skillTokens = 0;
 
     public Vector3 facingDirection;
     public int outfit;

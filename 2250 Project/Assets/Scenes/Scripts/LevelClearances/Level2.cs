@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level2 : LevelClearance
+public class Level2 : MonoBehaviour
 {
     protected int enemiesSpawned = 0, enemiesToSpawn = 2, levelNumber = 1;
     public GameObject enemyMelee, enemyRanged, enemyTank;
@@ -11,12 +11,12 @@ public class Level2 : LevelClearance
     void Update()
     {
         if (GameObject.FindWithTag("Player") != null){
-            if (PlayerMovement.instance.levelsCleared==levelNumber-1 && enemiesSpawned == 0){
+            if (PlayerMovement.instance.levelsCleared<levelNumber && enemiesSpawned == 0){
                 SpawnEnemies();
                 enemiesSpawned = enemiesToSpawn;
                 PlayerMovement.instance.allowExit = false;
             }
-            else if (PlayerMovement.instance.levelsCleared==levelNumber-1 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+            else if (PlayerMovement.instance.levelsCleared<levelNumber && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
                 PlayerMovement.instance.levelsCleared = levelNumber;
                 PlayerMovement.instance.allowExit = true;
             }

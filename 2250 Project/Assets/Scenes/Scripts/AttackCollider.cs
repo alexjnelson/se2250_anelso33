@@ -22,7 +22,7 @@ public class AttackCollider : MonoBehaviour
     {
         if ((gameObject.tag == "PlayerAttack" && collision.gameObject.tag =="Enemy") || (gameObject.tag == "EnemyAttack" && collision.gameObject.tag =="Player"))
         {
-            collision.gameObject.GetComponent<Health>().Damage(damage);
+            collision.gameObject.GetComponent<Health>().Damage(damage/collision.gameObject.GetComponent<Stats>().defense);
         }
     }
 }

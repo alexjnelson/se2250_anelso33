@@ -53,7 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scenes\SceneChange.cs" />
      <Compile Include="Assets\Scenes\Scripts\AttackCollider.cs" />
      <Compile Include="Assets\Scenes\Scripts\AttackColliderRanged.cs" />
      <Compile Include="Assets\Scenes\Scripts\BattleItemScript.cs" />
@@ -61,21 +60,22 @@
      <Compile Include="Assets\Scenes\Scripts\Combat.cs" />
      <Compile Include="Assets\Scenes\Scripts\customization.cs" />
      <Compile Include="Assets\Scenes\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Scenes\Scripts\EnemyTrigger.cs" />
+     <Compile Include="Assets\Scenes\Scripts\EnemyRanged.cs" />
      <Compile Include="Assets\Scenes\Scripts\followAbovePlayer.cs" />
      <Compile Include="Assets\Scenes\Scripts\Health.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\BossFight.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level1.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level2.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level3.cs" />
-     <Compile Include="Assets\Scenes\Scripts\LevelClearances\LevelClearance.cs" />
      <Compile Include="Assets\Scenes\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scenes\Scripts\SceneChange.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Bag.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\BattleItem.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\ExpBar.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Item.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\LevelOrb.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Potion.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Stats.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/workspace/GitHub/se2250_anelso33/2250 Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     //private Animator animator;
 
     public Vector3 facingDirection;
-    private Vector3 change, wanderDirection, currentPosition;
+    protected Vector3 change, wanderDirection, currentPosition;
     
     void Start()
     {
@@ -66,7 +66,6 @@ public class Enemy : MonoBehaviour
             _wanderTimer = Random.Range(2.0f, 6.0f);
             wanderDirection = Vector3.Normalize(new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0));
             facingDirection = wanderDirection;
-            print(wanderDirection);
         }
         else {
             _wanderTimer -= Time.deltaTime;

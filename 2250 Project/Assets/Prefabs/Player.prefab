@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2551911605655276098}
   - component: {fileID: 292906893239280599}
   - component: {fileID: 676147035668915921}
+  - component: {fileID: 114592922081945302}
   - component: {fileID: 7045621937711146960}
   - component: {fileID: 114009005595913012}
   - component: {fileID: 7045621937987254343}
@@ -152,6 +153,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114592922081945302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7045621937987254344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a19d9bd3977214daec87a6c61a7bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: 1
+  defense: 1
 --- !u!114 &7045621937711146960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,10 +183,14 @@ MonoBehaviour:
   playerBag: {fileID: 11400000, guid: 724665249301c7f44865302505a26bc7, type: 2}
   expBar: {fileID: 11400000, guid: ac689a48a6e49b24a8b9a649ec86d1b8, type: 2}
   coords: {fileID: 0}
+  level: 0
+  skillTokens: 0
   facingDirection: {x: 0, y: 0, z: 0}
   outfit: 0
   basicMelee: {fileID: 11400000, guid: 5f4147cf8352a534a92e1acd2363a5de, type: 2}
   basicRanged: {fileID: 11400000, guid: 51924466c0bffe14b8ad67ddff7e4abe, type: 2}
+  levelsCleared: 0
+  allowExit: 1
 --- !u!114 &114009005595913012
 MonoBehaviour:
   m_ObjectHideFlags: 0
