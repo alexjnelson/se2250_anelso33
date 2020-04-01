@@ -11,7 +11,7 @@ public class BattleItemScript : MonoBehaviour
     }
 
     public void removeItem(){
-        this.battleItem=null;
+        GetComponent<PlayerMovement>().ResetItem();
     }
 
     public BattleItem item {
