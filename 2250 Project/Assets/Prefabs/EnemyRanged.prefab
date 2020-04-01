@@ -231,3 +231,4 @@ MonoBehaviour:
   BigPotion: {fileID: 0}
   expDropped: 2
   facingDirection: {x: 0, y: 0, z: 0}
+  attackRange: 3
