@@ -31,10 +31,10 @@ public class Enemy : MonoBehaviour
         _wanderTimer = 0;
     }
 
-    virtual protected void GenerateDroppedItem (){
+    virtual protected void GenerateDroppedItem (){ // can be overridden for boss drops, etc
         int r = Random.Range(0, 99);
 
-        if (r < 99){
+        if (r == 99){
             droppedItem = LevelOrb;
         }
         else if (r < 10){
@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
     }
 
     void OnDestroy(){
-        playerScript.playerBag.addItem(droppedItem);
+        if (droppedItem != null) { playerScript.playerBag.addItem(droppedItem); }
         playerScript.expBar.GainExperience(expDropped);
     }
 

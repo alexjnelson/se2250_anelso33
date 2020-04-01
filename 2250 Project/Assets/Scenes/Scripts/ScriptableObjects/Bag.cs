@@ -13,5 +13,6 @@ public class Bag : ScriptableObject
 
     public void removeItem(Item item){
         this.items.Remove(item);
+        this.items.TrimExcess();
     }
 }

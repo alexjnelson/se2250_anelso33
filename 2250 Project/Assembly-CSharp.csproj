@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scenes\Scripts\customization.cs" />
      <Compile Include="Assets\Scenes\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scenes\Scripts\EnemyRanged.cs" />
+     <Compile Include="Assets\Scenes\Scripts\EnemyTank.cs" />
      <Compile Include="Assets\Scenes\Scripts\followAbovePlayer.cs" />
      <Compile Include="Assets\Scenes\Scripts\Health.cs" />
      <Compile Include="Assets\Scenes\Scripts\InventoryScript.cs" />

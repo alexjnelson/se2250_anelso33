@@ -13,6 +13,8 @@ public class customization : MonoBehaviour
     public string[] outfits = { "IdleChangeClothes", "Idle" };
     public int outfitsPicker = 0;
 
+    public BattleItem basicMelee, basicRanged;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,9 @@ public class customization : MonoBehaviour
                 _animator.Play((string)outfits[outfitsPicker]);
                 outfitsPicker = (outfitsPicker+1)%2;
                 player.outfit = outfitsPicker;
+
+                if (outfitsPicker == 0){ player.gameObject.GetComponent<BattleItemScript>().setItem(basicMelee); }
+                else{ player.gameObject.GetComponent<BattleItemScript>().setItem(basicRanged); }
             }
         }
         else

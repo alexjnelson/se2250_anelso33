@@ -6,8 +6,8 @@ public class BattleItemScript : MonoBehaviour
 {
     public BattleItem battleItem;
 
-    public void setItem(BattleItem battleItem){
-        this.battleItem = battleItem;
+    public void setItem(BattleItem newItem){
+        this.battleItem = newItem;
     }
 
     public void removeItem(){
