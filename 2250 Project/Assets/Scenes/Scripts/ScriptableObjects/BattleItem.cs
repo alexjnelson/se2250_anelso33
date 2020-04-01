@@ -20,11 +20,11 @@ public class BattleItem : Item
         BattleItemScript script = PlayerMovement.instance.gameObject.GetComponent<BattleItemScript>();
         if (script.item == this){ 
             script.removeItem(); 
-            this.itemSprite = active;
+            this.itemSprite = inactive;
         }
         else { 
             script.setItem(this); 
-            this.itemSprite = inactive;
+            this.itemSprite = active;
         }
     }
 }

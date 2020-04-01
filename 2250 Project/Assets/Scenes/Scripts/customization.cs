@@ -37,8 +37,7 @@ public class customization : MonoBehaviour
                 outfitsPicker = (outfitsPicker+1)%2;
                 player.outfit = outfitsPicker;
 
-                if (outfitsPicker == 0){ player.gameObject.GetComponent<BattleItemScript>().setItem(basicMelee); }
-                else{ player.gameObject.GetComponent<BattleItemScript>().setItem(basicRanged); }
+                player.gameObject.GetComponent<BattleItemScript>().item.Use(); // removes current item, if there is one, so it can be set Inactive
             }
         }
         else
