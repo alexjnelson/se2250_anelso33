@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D myRigidbody;
     private Vector3 change;
     private Animator animator;
-
+    public float maxHealth = 100f;
+    public float health;
     public Bag playerBag;
     public ExpBar expBar;
     public GameObject coords;
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         instance = this;
-
+        health = maxHealth;
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
     }

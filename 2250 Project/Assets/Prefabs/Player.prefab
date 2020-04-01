@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 676147035668915921}
   - component: {fileID: 7045621937711146960}
   - component: {fileID: 114009005595913012}
-  - component: {fileID: 7045621937987254343}
   - component: {fileID: 7045621937987254342}
+  - component: {fileID: 114120176724359518}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  maxHealth: 100
+  health: 0
   playerBag: {fileID: 0}
   expBar: {fileID: 0}
   coords: {fileID: 0}
@@ -188,19 +190,6 @@ MonoBehaviour:
     type: 3}
   facingDirection: {x: 0, y: 0, z: 0}
   attackCooldown: 0
---- !u!114 &7045621937987254343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7045621937987254344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab4ceda0fdf16ab4ba31f03da2a37439, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &7045621937987254342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,3 +203,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleItem: {fileID: 0}
+--- !u!114 &114120176724359518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7045621937987254344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4ceda0fdf16ab4ba31f03da2a37439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healthBar: {fileID: 0}

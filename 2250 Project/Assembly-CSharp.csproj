@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scenes\Scripts\EnemyTrigger.cs" />
      <Compile Include="Assets\Scenes\Scripts\followAbovePlayer.cs" />
      <Compile Include="Assets\Scenes\Scripts\Health.cs" />
+     <Compile Include="Assets\Scenes\Scripts\HealthBar.cs" />
      <Compile Include="Assets\Scenes\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\DownStairs_StartingRoom.cs" />
      <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\Outside_StartingHouse.cs" />

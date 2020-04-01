@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 4817702517803206307}
   - component: {fileID: 4817702517803206304}
   - component: {fileID: 4817702517803206305}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health Bar UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
