@@ -78,9 +78,9 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.15f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.15f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.15f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
-/reference:"C:/Users/lukeh/se2250/se2250_anelso33/2250 Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll"
-/reference:"C:/Users/lukeh/se2250/se2250_anelso33/2250 Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll"
-/reference:"C:/Users/lukeh/se2250/se2250_anelso33/2250 Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll"
+/reference:"C:/workspace/GitHub/se2250_anelso33/2250 Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll"
+/reference:"C:/workspace/GitHub/se2250_anelso33/2250 Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll"
+/reference:"C:/workspace/GitHub/se2250_anelso33/2250 Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.15f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.15f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\Microsoft.Win32.Primitives.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.15f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.AppContext.dll"
@@ -307,6 +307,7 @@ Assets\Scenes\Scripts\EnemyRanged.cs
 Assets\Scenes\Scripts\EnemyTank.cs
 Assets\Scenes\Scripts\followAbovePlayer.cs
 Assets\Scenes\Scripts\Health.cs
+Assets\Scenes\Scripts\HealthUI.cs
 Assets\Scenes\Scripts\InventoryScript.cs
 Assets\Scenes\Scripts\LevelClearances\BossFight.cs
 Assets\Scenes\Scripts\LevelClearances\Level1.cs
