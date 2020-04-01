@@ -7,6 +7,12 @@ public class HealthUI : MonoBehaviour
 {
     void Update()
     {
-        GetComponent<Slider>().value = PlayerMovement.instance.gameObject.GetComponent<Health>().health / 100f;
+        try {
+            GetComponent<Slider>().value = PlayerMovement.instance.gameObject.GetComponent<Health>().health / 100f;
+        }
+        catch {
+            // yerr
+        }
+        
     }
 }

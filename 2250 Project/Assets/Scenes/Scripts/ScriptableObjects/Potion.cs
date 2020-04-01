@@ -9,7 +9,9 @@ public class Potion : Item
 
     public override void Use(){
         PlayerMovement player = PlayerMovement.instance;
-        player.gameObject.GetComponent<Health>().Damage(-health);
-        player.playerBag.removeItem(this);
+        if (player.gameObject.GetComponent<Health>() + health <= 100){
+            player.gameObject.GetComponent<Health>().Damage(-health);
+            player.playerBag.removeItem(this);
+        }
     }
 }
