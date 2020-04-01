@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
     public BattleItem basicMelee, basicRanged;
 
+    public int levelsCleared = 0;
+    public bool allowExit = true;
+
     // Start is called before the first frame update
     void Start()
     {

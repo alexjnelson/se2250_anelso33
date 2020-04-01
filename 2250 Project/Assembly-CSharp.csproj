@@ -64,11 +64,12 @@
      <Compile Include="Assets\Scenes\Scripts\EnemyTrigger.cs" />
      <Compile Include="Assets\Scenes\Scripts\followAbovePlayer.cs" />
      <Compile Include="Assets\Scenes\Scripts\Health.cs" />
+     <Compile Include="Assets\Scenes\Scripts\LevelClearances\BossFight.cs" />
+     <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level1.cs" />
+     <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level2.cs" />
+     <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level3.cs" />
+     <Compile Include="Assets\Scenes\Scripts\LevelClearances\LevelClearance.cs" />
      <Compile Include="Assets\Scenes\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\DownStairs_StartingRoom.cs" />
-     <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\Outside_StartingHouse.cs" />
-     <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\StarterHouse_Outside.cs" />
-     <Compile Include="Assets\Scenes\Scripts\scene_change_scripts\StartingRoom_DownStairs.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Bag.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\BattleItem.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\ExpBar.cs" />

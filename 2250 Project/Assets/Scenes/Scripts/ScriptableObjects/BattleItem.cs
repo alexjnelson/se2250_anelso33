@@ -9,7 +9,7 @@ public class BattleItem : Item
     public float damage, rangeX, rangeZ, attackSpeed; // attack speed is how many times the attack can be used per second
 
     public BattleItem(){
-        damage = 20f;
+        damage = 15f;
         rangeX = 2f;
         rangeZ = 2f;
         attackSpeed = 0.8f;
