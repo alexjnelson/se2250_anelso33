@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Start(){
         paused = false;
         viewingBag = false;
+        viewingSkills = false;
         pauseMenuUI.SetActive(false);
         bag.SetActive(false);
         skillUpgrades.SetActive(false);
@@ -43,7 +44,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)){
-            if (paused && !viewingBag){
+            if (paused && !viewingBag && !viewingSkills){
                 Resume();
             }
             else if (viewingBag){
@@ -91,8 +92,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void CloseBag(){
-        viewingBag = false;
         bag.SetActive(false);
+        viewingBag = false;
     }
 
     public void SetStats(){
@@ -109,8 +110,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void CloseSkills(){
-        viewingSkills = false;
         skillUpgrades.SetActive(false);
+        viewingSkills = false;
     }
 
     public void UpgradeAttack(){
