@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         instance = this;
+        playerBag = new Bag();
+        expBar = new ExpBar();
 
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -91,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("moving", false);
         }
+        //print(change);
     }
 
     void MoveCharacter()
