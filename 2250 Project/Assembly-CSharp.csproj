@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\HealthBarUI.cs" />
      <Compile Include="Assets\Scenes\Scripts\AttackCollider.cs" />
      <Compile Include="Assets\Scenes\Scripts\AttackColliderRanged.cs" />
      <Compile Include="Assets\Scenes\Scripts\BattleItemScript.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Scenes\Scripts\EnemyTank.cs" />
      <Compile Include="Assets\Scenes\Scripts\followAbovePlayer.cs" />
      <Compile Include="Assets\Scenes\Scripts\Health.cs" />
+     <Compile Include="Assets\Scenes\Scripts\HealthUI.cs" />
      <Compile Include="Assets\Scenes\Scripts\InventoryScript.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\BossFight.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level1.cs" />
