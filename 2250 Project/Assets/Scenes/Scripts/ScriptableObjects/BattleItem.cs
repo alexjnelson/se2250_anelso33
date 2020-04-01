@@ -15,7 +15,7 @@ public class BattleItem : Item
         attackSpeed = 0.8f;
     }
 
-    void Use(){
+    public override void Use(){
         PlayerMovement.instance.gameObject.GetComponent<BattleItemScript>().setItem(this);
     }
 }

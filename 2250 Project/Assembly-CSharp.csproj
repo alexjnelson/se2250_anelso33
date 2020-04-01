@@ -63,10 +63,12 @@
      <Compile Include="Assets\Scenes\Scripts\EnemyRanged.cs" />
      <Compile Include="Assets\Scenes\Scripts\followAbovePlayer.cs" />
      <Compile Include="Assets\Scenes\Scripts\Health.cs" />
+     <Compile Include="Assets\Scenes\Scripts\InventoryScript.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\BossFight.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level1.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level2.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level3.cs" />
+     <Compile Include="Assets\Scenes\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scenes\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scenes\Scripts\SceneChange.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Bag.cs" />
