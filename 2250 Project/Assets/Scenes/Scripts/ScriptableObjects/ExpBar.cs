@@ -9,7 +9,7 @@ public class ExpBar : ScriptableObject
 
     public void GainExperience(int experience)
     {
-        if ((this.experience += experience) > GetThreshold(PlayerMovement.instance.level))
+        if ((this.experience += experience) >= GetThreshold(PlayerMovement.instance.level))
         {
             PlayerMovement.instance.LevelUp();
         }
