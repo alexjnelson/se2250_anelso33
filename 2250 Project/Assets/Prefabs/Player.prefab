@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7045621937987254344}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -180,8 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  playerBag: {fileID: 11400000, guid: 724665249301c7f44865302505a26bc7, type: 2}
-  expBar: {fileID: 11400000, guid: ac689a48a6e49b24a8b9a649ec86d1b8, type: 2}
+  playerBag: {fileID: 0}
+  expBar: {fileID: 0}
   coords: {fileID: 0}
   level: 0
   skillTokens: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   basicRanged: {fileID: 11400000, guid: 51924466c0bffe14b8ad67ddff7e4abe, type: 2}
   levelsCleared: 0
   allowExit: 1
+  lockMovement: 0
 --- !u!114 &114009005595913012
 MonoBehaviour:
   m_ObjectHideFlags: 0
