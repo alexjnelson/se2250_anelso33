@@ -5,19 +5,21 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool paused, viewingBag;
-    public GameObject pauseMenuUI, bag;
+    public static bool paused, viewingBag, viewingSkills;
+    public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox;
 
     public Transform itemsContainer;
-    GameObject [] slots;
-
-    public Item potion;
+    public GameObject [] slots;
+    
+    public Stats playerStats;
+    public PlayerMovement player;
 
     void Start(){
         paused = false;
         viewingBag = false;
         pauseMenuUI.SetActive(false);
         bag.SetActive(false);
+        skillUpgrades.SetActive(false);
 
         slots = new GameObject [24];
         Transform [] slotChildren = itemsContainer.GetComponentsInChildren<Transform>();
@@ -29,16 +31,26 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
+        player = PlayerMovement.instance;
+        playerStats = player.gameObject.GetComponent<Stats>();
     }
 
     void Update()
     {
+        if (player == null){
+            player = PlayerMovement.instance;
+            playerStats = player.gameObject.GetComponent<Stats>();
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape)){
             if (paused && !viewingBag){
                 Resume();
             }
             else if (viewingBag){
                 CloseBag();
+            }
+            else if (viewingSkills){
+                CloseSkills();
             }
             else {
                 Pause();
@@ -59,7 +71,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void FillBag(){
-        List<Item> playerItems = PlayerMovement.instance.playerBag.items;
+        List<Item> playerItems = player.playerBag.items;
 
         for (int i = 0 ; i < 24 ; i++) {
             if (i < playerItems.Count){
@@ -83,8 +95,38 @@ public class PauseMenu : MonoBehaviour
         bag.SetActive(false);
     }
 
-    public void OpenSkills(){
+    public void SetStats(){
+        attackTextBox.GetComponent<Text>().text = playerStats.attack.ToString();
+        defenseTextBox.GetComponent<Text>().text = playerStats.defense.ToString();
+        skillPointsTextBox.GetComponent<Text>().text = "Skill Points Remaining: " + player.skillTokens;
+    }
 
+    public void OpenSkills(){
+        SetStats();
+
+        viewingSkills = true;
+        skillUpgrades.SetActive(true);
+    }
+
+    public void CloseSkills(){
+        viewingSkills = false;
+        skillUpgrades.SetActive(false);
+    }
+
+    public void UpgradeAttack(){
+        if (player.skillTokens > 0){
+            playerStats.attack += 0.5f;
+            player.skillTokens--;
+            SetStats();
+        }
+    }
+
+    public void UpgradeDefense(){
+        if (player.skillTokens > 0){
+            playerStats.defense += 0.5f;
+            player.skillTokens--;
+            SetStats();
+        }
     }
 
     public void Save(){
