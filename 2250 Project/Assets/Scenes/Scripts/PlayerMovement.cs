@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public ExpBar expBar;
     public GameObject coords;
     
-    public int _level = 0, _skillTokens = 0, _attack = 0, _defense = 0;
+    public int level = 0, skillTokens = 0, attack = 0, defense = 0;
 
     public Vector3 facingDirection;
     public int outfit;
@@ -92,34 +92,15 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveCharacter()
     {
-        myRigidbody.MovePosition(transform.position + change * speed * Time.deltaTime);
+        myRigidbody.MovePosition(transform.position + Vector3.Normalize(change) * speed * Time.deltaTime);
     }
 
 
     public void LevelUp()
     {
-        this._level++;
-        this._skillTokens++;
+        this.level++;
+        this.skillTokens++;
         print("Level Up!");
     }
 
-    public int GetLevel()
-    {
-        return this._level;
-    }
-
-    void OpenMenu()
-    {
-
-    }
-
-    void SelectSkills()
-    {
-
-    }
-
-    void OpenBag()
-    {
-        Debug.Log(playerBag.items);
-    }
 }

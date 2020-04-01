@@ -19,6 +19,6 @@ public class AttackColliderRanged : AttackCollider
     }
 
     void moveObject(){
-        myRigidbody.MovePosition(transform.position + direction * speed * Time.deltaTime);
+        myRigidbody.MovePosition(transform.position + Vector3.Normalize(direction) * speed * Time.deltaTime);
     }
 }

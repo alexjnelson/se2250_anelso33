@@ -9,7 +9,7 @@ public class LevelOrb : Item
 
     public void Use(){
         PlayerMovement player = PlayerMovement.instance;
-        player._skillTokens++;
-        player._level++;
+        player.skillTokens++;
+        player.level++;
     }
 }
