@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     public Item droppedItem;
     public Item LevelOrb, SmallPotion, BigPotion;
+    public int expDropped;
     
     //private Animator animator;
 
@@ -110,6 +111,7 @@ public class Enemy : MonoBehaviour
 
     void OnDestroy(){
         playerScript.playerBag.addItem(droppedItem);
+        playerScript.expBar.GainExperience(expDropped);
     }
 
 }

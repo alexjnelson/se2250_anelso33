@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
     {
         this._level++;
         this._skillTokens++;
+        print("Level Up!");
     }
 
     public int GetLevel()
