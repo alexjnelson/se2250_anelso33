@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Basic Ranged
   itemSprite: {fileID: 0}
   damage: 20
-  rangeX: 2
-  rangeZ: 2
+  rangeX: 0.4
+  rangeZ: 0.4
   attackSpeed: 3

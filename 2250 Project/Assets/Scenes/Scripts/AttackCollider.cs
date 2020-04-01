@@ -8,12 +8,15 @@ public class AttackCollider : MonoBehaviour
     protected double _attackTime;
 
     protected virtual void Start(){
-        _attackTime = 0.7;
+        _attackTime = 0.5;
     }
 
     protected virtual void Update(){
         _attackTime -= Time.deltaTime;
+        if (CompareTag("PlayerAttack")) { PlayerMovement.instance.lockMovement = true; }
+
          if (_attackTime <= 0 ){
+            if (CompareTag("PlayerAttack")) { PlayerMovement.instance.lockMovement = false; }
             Destroy(gameObject);
         }
     }

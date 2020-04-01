@@ -100,11 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  trackingDistance: 20
   droppedItem: {fileID: 0}
   LevelOrb: {fileID: 11400000, guid: e4890baf3cf280445994e7d121dc2542, type: 2}
   SmallPotion: {fileID: 11400000, guid: 8884b7e521da6f8499072d8448eba3f4, type: 2}
   BigPotion: {fileID: 11400000, guid: 5ee2e14b5739a354f818e03ece073a68, type: 2}
-  expDropped: 10
+  expDropped: 4
   facingDirection: {x: 0, y: 0, z: 0}
 --- !u!50 &2585662374973105377
 Rigidbody2D:
@@ -197,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a19d9bd3977214daec87a6c61a7bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0.5
+  attack: 0.75
   defense: 2
 --- !u!114 &2732687199675164022
 MonoBehaviour:

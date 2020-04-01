@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     private PlayerMovement playerScript;
     private BattleItemScript _item;
-    private float _trackingDistance = 8;
+    public float trackingDistance;
     private double _wanderTimer;
 
     public Item droppedItem;
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         currentPosition = GetComponent<BoxCollider2D>().transform.position;
         Vector3 playerPosition = GameObject.FindWithTag("Player") != null ? playerScript.gameObject.transform.position : currentPosition;
 
-        if (Vector3.Distance(playerPosition, currentPosition) < _trackingDistance){
+        if (Vector3.Distance(playerPosition, currentPosition) < trackingDistance){
             MoveToPlayer(playerPosition);
             _wanderTimer = 0;
         }

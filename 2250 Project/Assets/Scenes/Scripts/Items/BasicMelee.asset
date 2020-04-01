@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Basic Melee
   itemSprite: {fileID: 0}
   damage: 50
-  rangeX: 2
-  rangeZ: 2
-  attackSpeed: 1.7
+  rangeX: 0.4
+  rangeZ: 0.4
+  attackSpeed: 2

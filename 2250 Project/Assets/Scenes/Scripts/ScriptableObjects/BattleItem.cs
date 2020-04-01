@@ -10,8 +10,8 @@ public class BattleItem : Item
 
     public BattleItem(){
         damage = 15f;
-        rangeX = 2f;
-        rangeZ = 2f;
+        rangeX = 0.4f;
+        rangeZ = 0.4f;
         attackSpeed = 0.8f;
     }
 

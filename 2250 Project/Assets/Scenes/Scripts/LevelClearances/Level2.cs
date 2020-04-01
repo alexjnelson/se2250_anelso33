@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Level2 : MonoBehaviour
 {
-    protected int enemiesSpawned = 0, enemiesToSpawn = 2, levelNumber = 1;
+    protected int enemiesSpawned = 0, enemiesToSpawn = 8, levelNumber = 2;
     public GameObject enemyMelee, enemyRanged, enemyTank;
     public Transform target1, target2, target3, target4, target5, target6, target7, target8;
 

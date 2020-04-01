@@ -223,10 +223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25864363ef589ff4b8dc9b8415069385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 6
+  trackingDistance: 12
   droppedItem: {fileID: 0}
   LevelOrb: {fileID: 0}
   SmallPotion: {fileID: 0}
   BigPotion: {fileID: 0}
-  expDropped: 0
+  expDropped: 2
   facingDirection: {x: 0, y: 0, z: 0}

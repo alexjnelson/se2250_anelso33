@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public BattleItem basicMelee, basicRanged;
 
     public int levelsCleared = 0;
-    public bool allowExit = true;
+    public bool allowExit = true, lockMovement = false; // lock movement only applies to melee player
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-        updateAnimationAndMove();
+        if (outfit==1 || !lockMovement) { updateAnimationAndMove(); }
 
         if (outfit == 0){
             GetComponent<BattleItemScript>().setItem(basicMelee);
