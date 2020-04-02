@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -38,8 +39,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         change = Vector3.zero;
 
         change.x = Input.GetAxisRaw("Horizontal");
@@ -64,13 +64,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("left shift"))
-        {
+        if (Input.GetKey("left shift")) {
             speed = defaultSpeed * 1.8f;
         }
-        else
-        {
+        else {
             speed = defaultSpeed;
+        }
+
+        if (Input.GetKey("p")){
+            Save(0);
         }
     }
 
@@ -108,6 +110,13 @@ public class PlayerMovement : MonoBehaviour
         this.level++;
         this.skillTokens++;
         print("Level Up!");
+    }
+
+    public void Save(int saveNumber){
+        if (saveNumber < 3){
+            string path = "Assets/SaveFiles/" + saveNumber.ToString() + "/PlayerSave" + ".prefab";
+            PrefabUtility.SaveAsPrefabAssetAndConnect(gameObject, path, InteractionMode.UserAction);
+        }
     }
 
 }

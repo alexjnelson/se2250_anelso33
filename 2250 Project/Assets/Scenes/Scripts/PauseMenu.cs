@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool paused, viewingBag, viewingSkills;
-    public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox;
+    public static bool paused, viewingBag, viewingSkills, viewingSaves;
+    public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox, healthUI, saveManager, saveDeny;
 
     public Transform itemsContainer;
     public GameObject [] slots;
@@ -18,9 +18,13 @@ public class PauseMenu : MonoBehaviour
         paused = false;
         viewingBag = false;
         viewingSkills = false;
+        viewingSaves = false;
         pauseMenuUI.SetActive(false);
         bag.SetActive(false);
         skillUpgrades.SetActive(false);
+        saveManager.SetActive(false);
+        saveDeny.SetActive(false);
+        healthUI.SetActive(true);
 
         slots = new GameObject [24];
         Transform [] slotChildren = itemsContainer.GetComponentsInChildren<Transform>();
@@ -44,7 +48,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)){
-            if (paused && !viewingBag && !viewingSkills){
+            if (paused && !viewingBag && !viewingSkills && !viewingSaves){
                 Resume();
             }
             else if (viewingBag){
@@ -53,6 +57,9 @@ public class PauseMenu : MonoBehaviour
             else if (viewingSkills){
                 CloseSkills();
             }
+            else if (viewingSaves){
+                CloseSaves();
+            }
             else {
                 Pause();
             }
@@ -60,12 +67,15 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Resume(){
+        healthUI.SetActive(true);
         pauseMenuUI.SetActive(false);
+        saveDeny.SetActive(false);
         Time.timeScale = 1f;
         paused = false;
     }
 
     void Pause(){
+        healthUI.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         paused = true;
@@ -130,7 +140,20 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Save(){
+    public void OpenSaves(){
+        if (player.allowExit){
+            viewingSaves = true;
+            saveManager.SetActive(true);
+        }
+        else { saveDeny.SetActive(true); }
+    }
 
+    public void CloseSaves(){
+        viewingSaves = false;
+        saveManager.SetActive(false);
+    }
+
+    public void Save(int saveNumber){
+        player.Save(saveNumber);
     }
 }
