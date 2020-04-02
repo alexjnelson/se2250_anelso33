@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class Bag : ScriptableObject
+public class Bag : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
 

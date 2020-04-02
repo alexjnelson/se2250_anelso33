@@ -89,7 +89,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void FillBag(){
-        List<Item> playerItems = player.playerBag.items;
+        List<Item> playerItems = player.gameObject.GetComponent<Bag>().items;
 
         for (int i = 0 ; i < 24 ; i++) {
             if (i < playerItems.Count){

@@ -12,6 +12,6 @@ public class LevelOrb : Item
         player.skillTokens++;
         player.level++;
 
-        player.playerBag.removeItem(this);
+        player.gameObject.GetComponent<Bag>().removeItem(this);
     }
 }

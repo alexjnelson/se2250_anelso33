@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class ExpBar : ScriptableObject
+
+public class ExpBar : MonoBehaviour
 {
     public int experience = 0;
 

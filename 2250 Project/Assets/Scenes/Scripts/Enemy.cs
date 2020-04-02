@@ -111,8 +111,8 @@ public class Enemy : MonoBehaviour
     }
 
     void OnDestroy(){
-        if (droppedItem != null) { playerScript.playerBag.addItem(droppedItem); }
-        playerScript.expBar.GainExperience(expDropped);
+        if (droppedItem != null) { playerScript.gameObject.GetComponent<Bag>().addItem(droppedItem); }
+        playerScript.gameObject.GetComponent<ExpBar>().GainExperience(expDropped);
     }
 
 }

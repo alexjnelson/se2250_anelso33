@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scenes\Scripts\AttackCollider.cs" />
      <Compile Include="Assets\Scenes\Scripts\AttackColliderRanged.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Bag.cs" />
      <Compile Include="Assets\Scenes\Scripts\BattleItemScript.cs" />
      <Compile Include="Assets\Scenes\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scenes\Scripts\Combat.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Scenes\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scenes\Scripts\EnemyRanged.cs" />
      <Compile Include="Assets\Scenes\Scripts\EnemyTank.cs" />
+     <Compile Include="Assets\Scenes\Scripts\ExpBar.cs" />
      <Compile Include="Assets\Scenes\Scripts\followAbovePlayer.cs" />
      <Compile Include="Assets\Scenes\Scripts\Health.cs" />
      <Compile Include="Assets\Scenes\Scripts\HealthUI.cs" />
@@ -73,9 +75,7 @@
      <Compile Include="Assets\Scenes\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scenes\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scenes\Scripts\SceneChange.cs" />
-     <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Bag.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\BattleItem.cs" />
-     <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\ExpBar.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Item.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\LevelOrb.cs" />
      <Compile Include="Assets\Scenes\Scripts\ScriptableObjects\Potion.cs" />

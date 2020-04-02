@@ -11,7 +11,7 @@ public class Potion : Item
         PlayerMovement player = PlayerMovement.instance;
         if (player.gameObject.GetComponent<Health>().health + health <= 100){
             player.gameObject.GetComponent<Health>().Damage(-health);
-            player.playerBag.removeItem(this);
+            player.gameObject.GetComponent<Bag>().removeItem(this);
         }
     }
 }

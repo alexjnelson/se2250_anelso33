@@ -298,6 +298,7 @@
 /define:CSHARP_7_3_OR_NEWER
 Assets\Scenes\Scripts\AttackCollider.cs
 Assets\Scenes\Scripts\AttackColliderRanged.cs
+Assets\Scenes\Scripts\Bag.cs
 Assets\Scenes\Scripts\BattleItemScript.cs
 Assets\Scenes\Scripts\CameraMovement.cs
 Assets\Scenes\Scripts\Combat.cs
@@ -305,6 +306,7 @@ Assets\Scenes\Scripts\customization.cs
 Assets\Scenes\Scripts\Enemy.cs
 Assets\Scenes\Scripts\EnemyRanged.cs
 Assets\Scenes\Scripts\EnemyTank.cs
+Assets\Scenes\Scripts\ExpBar.cs
 Assets\Scenes\Scripts\followAbovePlayer.cs
 Assets\Scenes\Scripts\Health.cs
 Assets\Scenes\Scripts\HealthUI.cs
@@ -316,9 +318,7 @@ Assets\Scenes\Scripts\LevelClearances\Level3.cs
 Assets\Scenes\Scripts\PauseMenu.cs
 Assets\Scenes\Scripts\PlayerMovement.cs
 Assets\Scenes\Scripts\SceneChange.cs
-Assets\Scenes\Scripts\ScriptableObjects\Bag.cs
 Assets\Scenes\Scripts\ScriptableObjects\BattleItem.cs
-Assets\Scenes\Scripts\ScriptableObjects\ExpBar.cs
 Assets\Scenes\Scripts\ScriptableObjects\Item.cs
 Assets\Scenes\Scripts\ScriptableObjects\LevelOrb.cs
 Assets\Scenes\Scripts\ScriptableObjects\Potion.cs

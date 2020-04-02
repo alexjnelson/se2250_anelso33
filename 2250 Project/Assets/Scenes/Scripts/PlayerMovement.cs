@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 change;
     private Animator animator;
 
-    public Bag playerBag;
-    public ExpBar expBar;
     public GameObject coords;
     
     public int level = 0, skillTokens = 0;
@@ -26,16 +24,15 @@ public class PlayerMovement : MonoBehaviour
 
     public int levelsCleared = 0;
     public bool allowExit = true, lockMovement = false; // lock movement only applies to melee player
+    public string[] outfits = { "Idle", "IdleChangedClothes" };
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
-        playerBag = new Bag();
-        expBar = new ExpBar();
-
-        animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

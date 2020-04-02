@@ -8816,9 +8816,9 @@ MonoBehaviour:
   slots: []
   playerStats: {fileID: 0}
   player: {fileID: 0}
-  save0: {fileID: 0}
-  save1: {fileID: 0}
-  save2: {fileID: 0}
+  save0: {fileID: 7045621937987254344, guid: d3cd05abb2f4c164e8dc8eb5d5b873ad, type: 3}
+  save1: {fileID: 7045621937987254344, guid: e658882eec92f1b47a079e9a1c3fd0ed, type: 3}
+  save2: {fileID: 7045621937987254344, guid: 2956471639a66cc419330dd88b6af14e, type: 3}
 --- !u!1 &8869460423870985366
 GameObject:
   m_ObjectHideFlags: 0
