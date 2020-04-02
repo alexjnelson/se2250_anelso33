@@ -6,11 +6,11 @@ public class customization : MonoBehaviour
 {
 
 
-    private bool _playerInZone;
+    private bool _playerInZone, _correctOutfit;
     public GameObject pressX;
     public PlayerMovement player;
     private Animator _animator;
-    public string[] outfits = { "IdleChangeClothes", "Idle" };
+    public string[] outfits = { "Idle", "IdleChangedClothes" };
     public int outfitsPicker = 0;
 
     public BattleItem basicMelee, basicRanged;
@@ -21,19 +21,32 @@ public class customization : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         pressX.SetActive(false);
         _animator = player.GetComponent<Animator>();
+
+        _correctOutfit = CameraMovement.playerSave==null || CameraMovement.playerSave.GetComponent<PlayerMovement>().outfit==0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!_correctOutfit && _animator.GetCurrentAnimatorStateInfo(0).IsName(outfits[outfitsPicker])){
+            _correctOutfit = true;
+        }
+
+        if (!_correctOutfit){
+            _animator.Play(outfits[outfitsPicker]);
+        }
+        else {
+            outfitsPicker = player.outfit;
+        }
+        
+
         if (_playerInZone)
         {
             pressX.SetActive(true);
             FollowObject(player);
             if (Input.GetKeyUp("x"))
             {
-                Debug.Log("You just changed clothes!");
-                _animator.Play((string)outfits[outfitsPicker]);
+                _animator.Play(outfits[outfitsPicker]);
                 outfitsPicker = (outfitsPicker+1)%2;
                 player.outfit = outfitsPicker;
 

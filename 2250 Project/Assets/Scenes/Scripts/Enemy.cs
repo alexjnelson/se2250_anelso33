@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
 
     public Vector3 facingDirection;
     protected Vector3 change, wanderDirection, currentPosition;
+
+    public float attackRange;
     
     void Start()
     {
@@ -94,7 +96,7 @@ public class Enemy : MonoBehaviour
     }
 
     protected virtual bool CheckAttack(Vector3 playerPosition) {
-        if (Vector3.Distance(playerPosition, currentPosition) <  1.3 && GameObject.FindWithTag("Player") != null){
+        if (Vector3.Distance(playerPosition, currentPosition) <  attackRange && GameObject.FindWithTag("Player") != null){
             GetComponent<Combat>().Attack();
             return true;
         }
@@ -109,8 +111,8 @@ public class Enemy : MonoBehaviour
     }
 
     void OnDestroy(){
-        if (droppedItem != null) { playerScript.playerBag.addItem(droppedItem); }
-        playerScript.expBar.GainExperience(expDropped);
+        if (droppedItem != null) { playerScript.gameObject.GetComponent<Bag>().addItem(droppedItem); }
+        playerScript.gameObject.GetComponent<ExpBar>().GainExperience(expDropped);
     }
 
 }

@@ -16,16 +16,19 @@ public class AttackCollider : MonoBehaviour
         if (CompareTag("PlayerAttack")) { PlayerMovement.instance.lockMovement = true; }
 
          if (_attackTime <= 0 ){
-            if (CompareTag("PlayerAttack")) { PlayerMovement.instance.lockMovement = false; }
             Destroy(gameObject);
         }
     }
 
-    void OnTriggerEnter2D (Collider2D collision)
+    virtual protected void OnTriggerEnter2D (Collider2D collision)
     {
         if ((gameObject.tag == "PlayerAttack" && collision.gameObject.tag =="Enemy") || (gameObject.tag == "EnemyAttack" && collision.gameObject.tag =="Player"))
         {
             collision.gameObject.GetComponent<Health>().Damage(damage/collision.gameObject.GetComponent<Stats>().defense);
         }
+    }
+
+    protected void OnDestroy(){
+        if (CompareTag("PlayerAttack")) { PlayerMovement.instance.lockMovement = false; }
     }
 }

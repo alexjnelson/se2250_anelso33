@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 change;
     private Animator animator;
 
-    public Bag playerBag;
-    public ExpBar expBar;
     public GameObject coords;
     
     public int level = 0, skillTokens = 0;
@@ -25,21 +24,19 @@ public class PlayerMovement : MonoBehaviour
 
     public int levelsCleared = 0;
     public bool allowExit = true, lockMovement = false; // lock movement only applies to melee player
+    public string[] outfits = { "Idle", "IdleChangedClothes" };
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
-        playerBag = new Bag();
-        expBar = new ExpBar();
-
-        animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         change = Vector3.zero;
 
         change.x = Input.GetAxisRaw("Horizontal");
@@ -64,13 +61,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("left shift"))
-        {
+        if (Input.GetKey("left shift")) {
             speed = defaultSpeed * 1.8f;
         }
-        else
-        {
+        else {
             speed = defaultSpeed;
+        }
+
+        if (Input.GetKey("p")){
+            Save(0);
         }
     }
 
@@ -108,6 +107,13 @@ public class PlayerMovement : MonoBehaviour
         this.level++;
         this.skillTokens++;
         print("Level Up!");
+    }
+
+    public void Save(int saveNumber){
+        if (saveNumber < 3){
+            string path = "Assets/SaveFiles/" + saveNumber.ToString() + "/PlayerSave" + ".prefab";
+            PrefabUtility.SaveAsPrefabAssetAndConnect(gameObject, path, InteractionMode.UserAction);
+        }
     }
 
 }

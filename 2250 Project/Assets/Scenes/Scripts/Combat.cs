@@ -33,7 +33,7 @@ public class Combat : MonoBehaviour
         if (attackCooldown <= 0){
             GameObject attack = Instantiate(AttackHitBox, gameObject.transform.position + facingDirection, Quaternion.identity); //spawns a boxcollider in the attack range
             attack.GetComponent<AttackCollider>().damage = _item.item.damage * GetComponent<Stats>().attack;
-            attack.GetComponent<BoxCollider2D>().size = new Vector3(rangeX, 1, rangeZ);
+            attack.GetComponent<BoxCollider2D>().size = new Vector3(rangeX, rangeZ, 1);
             attack.tag = gameObject.CompareTag("Player") ? "PlayerAttack" : "EnemyAttack";
 
             attackCooldown = _attackCooldownTime;
@@ -49,7 +49,7 @@ public class Combat : MonoBehaviour
             hitbox.speed = 20;
             hitbox.direction = facingDirection;
 
-            attack.GetComponent<BoxCollider2D>().size = new Vector3(rangeX, 1, rangeZ);
+            attack.GetComponent<BoxCollider2D>().size = new Vector3(rangeX, rangeZ, 1);
             attack.tag = gameObject.CompareTag("Player") ? "PlayerAttack" : "EnemyAttack";
 
             attackCooldown = _attackCooldownTime;
