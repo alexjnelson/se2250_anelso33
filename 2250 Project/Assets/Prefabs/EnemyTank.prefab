@@ -121,14 +121,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  trackingDistance: 5
+  trackingDistance: 8
   droppedItem: {fileID: 0}
   LevelOrb: {fileID: 0}
   SmallPotion: {fileID: 0}
   BigPotion: {fileID: 0}
-  expDropped: 4
+  expDropped: 8
   facingDirection: {x: 0, y: 0, z: 0}
-  attackRange: 10
+  attackRange: 2.5
   LongSword: {fileID: 11400000, guid: ed00c3b5d587b064488466ede03ec2a8, type: 2}
   SpringLauncher: {fileID: 11400000, guid: 4928d9a475d5e71408e3ab1a3625f856, type: 2}
 --- !u!95 &2585662374973105376
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a19d9bd3977214daec87a6c61a7bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 2
+  attack: 1
   defense: 4
 --- !u!114 &2732687199675164022
 MonoBehaviour:
@@ -233,4 +233,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f76c33c8e9fb6245a8665341b91b7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleItem: {fileID: 0}
+  battleItem: {fileID: 11400000, guid: 5d6e2bfec3e4a9e4288788106d35a232, type: 2}
