@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
 
     public Transform target; 
     public GameObject player;
+    public static GameObject playerSave;
 
     public float smoothing;
     public Vector2 maxPosition;
@@ -16,8 +17,11 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.FindWithTag("Player")==null){
+        if (GameObject.FindWithTag("Player")==null && playerSave == null){
             Instantiate(player, new Vector3(0,0,0), Quaternion.identity);
+        }
+        else if (GameObject.FindWithTag("Player")==null){
+            Instantiate(playerSave, new Vector3(0,0,0), Quaternion.identity);
         }
         target = GameObject.FindWithTag("Player").transform;
     }

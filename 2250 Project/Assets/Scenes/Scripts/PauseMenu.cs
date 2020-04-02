@@ -2,27 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool paused, viewingBag, viewingSkills, viewingSaves;
-    public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox, healthUI, saveManager, saveDeny;
+    public static bool paused, viewingBag, viewingSkills, viewingSaves, viewingLoads;
+    public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox, healthUI, saveManager, loadManager, saveDeny;
 
     public Transform itemsContainer;
     public GameObject [] slots;
     
     public Stats playerStats;
     public PlayerMovement player;
+    public GameObject save0, save1, save2;
 
     void Start(){
         paused = false;
         viewingBag = false;
         viewingSkills = false;
         viewingSaves = false;
+        viewingLoads = false;
         pauseMenuUI.SetActive(false);
         bag.SetActive(false);
         skillUpgrades.SetActive(false);
         saveManager.SetActive(false);
+        loadManager.SetActive(false);
         saveDeny.SetActive(false);
         healthUI.SetActive(true);
 
@@ -48,7 +52,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)){
-            if (paused && !viewingBag && !viewingSkills && !viewingSaves){
+            if (paused && !viewingBag && !viewingSkills && !viewingSaves && !viewingLoads){
                 Resume();
             }
             else if (viewingBag){
@@ -59,6 +63,9 @@ public class PauseMenu : MonoBehaviour
             }
             else if (viewingSaves){
                 CloseSaves();
+            }
+            else if (viewingLoads){
+                CloseLoading();
             }
             else {
                 Pause();
@@ -153,7 +160,24 @@ public class PauseMenu : MonoBehaviour
         saveManager.SetActive(false);
     }
 
+    public void OpenLoading(){
+        viewingLoads = true;
+        loadManager.SetActive(true);
+    }
+
+    public void CloseLoading(){
+        viewingLoads = false;
+        loadManager.SetActive(false);
+    }
+
     public void Save(int saveNumber){
         player.Save(saveNumber);
     }
+
+    public void Load(int saveNumber){
+        CameraMovement.playerSave = saveNumber == 0 ? save0 : saveNumber == 1 ? save1 : save2;
+        Application.LoadLevel(0);
+        Resume();
+    }
+
 }
