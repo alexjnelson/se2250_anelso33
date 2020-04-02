@@ -21,7 +21,7 @@ public class AttackCollider : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D (Collider2D collision)
+    virtual protected void OnTriggerEnter2D (Collider2D collision)
     {
         if ((gameObject.tag == "PlayerAttack" && collision.gameObject.tag =="Enemy") || (gameObject.tag == "EnemyAttack" && collision.gameObject.tag =="Player"))
         {

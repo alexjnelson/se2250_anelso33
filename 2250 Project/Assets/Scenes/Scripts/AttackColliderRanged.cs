@@ -21,4 +21,9 @@ public class AttackColliderRanged : AttackCollider
     void moveObject(){
         myRigidbody.MovePosition(transform.position + Vector3.Normalize(direction) * speed * Time.deltaTime);
     }
+
+    override protected void OnTriggerEnter2D (Collider2D collision){
+        base.OnTriggerEnter2D(collision);
+        Destroy(gameObject);
+    }
 }
