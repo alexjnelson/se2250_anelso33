@@ -112,11 +112,13 @@ public class Enemy : MonoBehaviour
     }
 
     void OnDestroy(){
-        if (droppedItem != null) { 
-            GameObject groundItem = Instantiate(groundItemPrefab, transform.position, Quaternion.identity);
-            groundItem.GetComponent<GroundItem>().item = droppedItem;
+        if (GetComponent<Health>().health<=0){ // only does death actions if enemy was killed, not on reload
+            if (droppedItem != null) { 
+                GameObject groundItem = Instantiate(groundItemPrefab, transform.position, Quaternion.identity);
+                groundItem.GetComponent<GroundItem>().item = droppedItem;
+            }
+            playerScript.gameObject.GetComponent<ExpBar>().GainExperience(expDropped);
         }
-        playerScript.gameObject.GetComponent<ExpBar>().GainExperience(expDropped);
     }
 
 }
