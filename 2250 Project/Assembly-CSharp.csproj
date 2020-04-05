@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scenes\Scripts\EnemyTank.cs" />
      <Compile Include="Assets\Scenes\Scripts\ExpBar.cs" />
      <Compile Include="Assets\Scenes\Scripts\followAbovePlayer.cs" />
+     <Compile Include="Assets\Scenes\Scripts\GroundItem.cs" />
      <Compile Include="Assets\Scenes\Scripts\Health.cs" />
      <Compile Include="Assets\Scenes\Scripts\HealthUI.cs" />
      <Compile Include="Assets\Scenes\Scripts\InventoryScript.cs" />

@@ -126,6 +126,8 @@ MonoBehaviour:
   LevelOrb: {fileID: 0}
   SmallPotion: {fileID: 0}
   BigPotion: {fileID: 0}
+  groundItemPrefab: {fileID: 6433072074565204359, guid: 9e1e2e8f52d57154a88f8500645216ce,
+    type: 3}
   expDropped: 8
   facingDirection: {x: 0, y: 0, z: 0}
   attackRange: 2.5

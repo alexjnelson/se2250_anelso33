@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     public Item droppedItem;
     public Item LevelOrb, SmallPotion, BigPotion;
+    public GameObject groundItemPrefab;
     public int expDropped;
     
     //private Animator animator;
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour
         _item = gameObject.GetComponent<BattleItemScript>();
         myRigidbody = GetComponent<Rigidbody2D>();
         gameObject.tag="Enemy";
-        GenerateDroppedItem();
+        if (droppedItem == null){ GenerateDroppedItem(); };
 
         _wanderTimer = 0;
     }
@@ -111,7 +112,11 @@ public class Enemy : MonoBehaviour
     }
 
     void OnDestroy(){
-        if (droppedItem != null) { playerScript.gameObject.GetComponent<Bag>().addItem(droppedItem); }
+        if (droppedItem != null) { 
+            print("droped");
+            GameObject groundItem = Instantiate(groundItemPrefab, transform.position, Quaternion.identity);
+            groundItem.GetComponent<GroundItem>().item = droppedItem;
+        }
         playerScript.gameObject.GetComponent<ExpBar>().GainExperience(expDropped);
     }
 

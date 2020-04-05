@@ -35,7 +35,7 @@ public class AttackCollider : MonoBehaviour
     protected void OnDestroy(){
         if (CompareTag("PlayerAttack")) { 
             animator.SetBool("attacking", false);
-            animator.speed = 1; // resets animator speed
+            animator.speed = 1f; // resets animator speed
             PlayerMovement.instance.lockMovement = false; 
         }
     }

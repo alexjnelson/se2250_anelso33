@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 7045621937987254343}
   - component: {fileID: 7045621937987254342}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerSave
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7045621937987254344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9666538, y: 3.859558, z: 0}
+  m_LocalPosition: {x: -1.1878033, y: 0.9999379, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff23d39660d8a140b8c71bff89a778f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experience: 0
+  experience: 4
 --- !u!212 &8446513527144520666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 47226707
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e30184eb900e1146876046c382d6cfc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3627a891ac7c4364498beee91509dac2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -208,16 +208,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  playerBag: {fileID: 0}
-  expBar: {fileID: 0}
+  animator: {fileID: 676147035668915921}
   coords: {fileID: 0}
-  level: 0
-  skillTokens: 0
-  facingDirection: {x: 0, y: 0, z: 0}
-  outfit: 0
+  level: 1
+  skillTokens: 1
+  facingDirection: {x: 0, y: -1, z: 0}
+  outfit: 1
   basicMelee: {fileID: 11400000, guid: 5f4147cf8352a534a92e1acd2363a5de, type: 2}
   basicRanged: {fileID: 11400000, guid: 51924466c0bffe14b8ad67ddff7e4abe, type: 2}
-  levelsCleared: 0
+  levelsCleared: 1
   allowExit: 1
   lockMovement: 0
 --- !u!114 &114009005595913012
@@ -236,7 +235,7 @@ MonoBehaviour:
     type: 3}
   AttackHitBoxRanged: {fileID: 5503020888547925354, guid: fd8721ab881b4114c9268c44795139bb,
     type: 3}
-  facingDirection: {x: 0, y: 0, z: 0}
+  facingDirection: {x: 0, y: -1, z: 0}
   attackCooldown: 0
 --- !u!114 &7045621937987254343
 MonoBehaviour:
@@ -250,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4ceda0fdf16ab4ba31f03da2a37439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 10000
 --- !u!114 &7045621937987254342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,4 +262,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f76c33c8e9fb6245a8665341b91b7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleItem: {fileID: 11400000, guid: 5f4147cf8352a534a92e1acd2363a5de, type: 2}
+  battleItem: {fileID: 11400000, guid: 51924466c0bffe14b8ad67ddff7e4abe, type: 2}
