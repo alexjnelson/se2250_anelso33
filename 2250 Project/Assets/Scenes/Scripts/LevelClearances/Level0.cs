@@ -9,7 +9,7 @@ public class Level0 : MonoBehaviour
     void Start (){
         if (!gameBegan){
             GameObject.Find("MenuOverlay").GetComponent<PauseMenu>().ShowStory(_storyText);
-            gameBegan = true;
+            gameBegan = true; 
         }
         
     }

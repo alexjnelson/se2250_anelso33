@@ -113,7 +113,6 @@ public class Enemy : MonoBehaviour
 
     void OnDestroy(){
         if (droppedItem != null) { 
-            print("droped");
             GameObject groundItem = Instantiate(groundItemPrefab, transform.position, Quaternion.identity);
             groundItem.GetComponent<GroundItem>().item = droppedItem;
         }
