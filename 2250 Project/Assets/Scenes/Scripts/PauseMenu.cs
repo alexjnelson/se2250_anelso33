@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool paused, viewingBag, viewingSkills, viewingSaves, viewingLoads, viewingStory;
+    public static bool paused, viewingBag, viewingSkills, viewingSaves, viewingLoads, viewingStory, gameStarted = false;
     public static string storyTextString;
     public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox, healthUI, 
         saveManager, loadManager, saveDeny, storyBoard, storyText;
@@ -35,7 +35,11 @@ public class PauseMenu : MonoBehaviour
         if (viewingStory){
             paused = true;
             UpdateStoryText();
-            storyBoard.SetActive(true);
+            if (SceneManager.GetActiveScene().name!="StartingRoom") { storyBoard.SetActive(true); }
+        }
+        if (!gameStarted){
+            Pause();
+            gameStarted=true;
         }
 
         slots = new GameObject [24];
@@ -59,7 +63,7 @@ public class PauseMenu : MonoBehaviour
             playerStats = player.gameObject.GetComponent<Stats>();
         }
 
-        if (viewingStory){
+        if (viewingStory && SceneManager.GetActiveScene().name!="StartingRoom"){
             UpdateStoryText();
             storyBoard.SetActive(true);
         }
@@ -89,11 +93,20 @@ public class PauseMenu : MonoBehaviour
     public void Resume(){
         healthUI.SetActive(true);
         pauseMenuUI.SetActive(false);
-        saveDeny.SetActive(false);
-        storyBoard.SetActive(false);
-        viewingStory = false;
+        saveDeny.SetActive(false);        
+        
         Time.timeScale = 1f;
         paused = false;
+
+        if (viewingStory && SceneManager.GetActiveScene().name=="StartingRoom"){
+            storyBoard.SetActive(true);
+            paused=true;
+        }
+        else{
+            storyBoard.SetActive(false);
+        }
+        viewingStory = false;
+
     }
 
     void Pause(){
@@ -197,8 +210,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void ShowStory(string text){
-        storyTextString = text; 
-        storyBoard.SetActive(true);
+        storyTextString = text;  
         viewingStory = true;
 
         Time.timeScale = 0f;
