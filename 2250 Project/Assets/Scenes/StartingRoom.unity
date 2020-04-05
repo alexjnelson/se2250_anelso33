@@ -5282,10 +5282,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressX: {fileID: 779370004}
   player: {fileID: 0}
-  outfits:
-  - IdleChangeClothes
-  - Idle
-  outfitsPicker: 0
   basicMelee: {fileID: 11400000, guid: 5f4147cf8352a534a92e1acd2363a5de, type: 2}
   basicRanged: {fileID: 11400000, guid: 51924466c0bffe14b8ad67ddff7e4abe, type: 2}
 --- !u!1001 &4750511072128643206
@@ -5488,6 +5484,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MenuOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869460423915776202, guid: 7ccfd9c26223846488fbd19c96064715,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ccfd9c26223846488fbd19c96064715, type: 3}

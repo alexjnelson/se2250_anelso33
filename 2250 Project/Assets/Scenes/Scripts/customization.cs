@@ -6,12 +6,10 @@ public class customization : MonoBehaviour
 {
 
 
-    private bool _playerInZone, _correctOutfit;
+    private bool _playerInZone;
     public GameObject pressX;
     public PlayerMovement player;
     private Animator _animator;
-    public string[] outfits = { "Idle", "IdleChangedClothes" };
-    public int outfitsPicker = 0;
 
     public BattleItem basicMelee, basicRanged;
 
@@ -21,35 +19,19 @@ public class customization : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         pressX.SetActive(false);
         _animator = player.GetComponent<Animator>();
-
-        _correctOutfit = CameraMovement.playerSave==null || CameraMovement.playerSave.GetComponent<PlayerMovement>().outfit==0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_correctOutfit && _animator.GetCurrentAnimatorStateInfo(0).IsName(outfits[outfitsPicker])){
-            _correctOutfit = true;
-        }
-
-        if (!_correctOutfit){
-            _animator.Play(outfits[outfitsPicker]);
-        }
-        else {
-            outfitsPicker = player.outfit;
-        }
-        
-
         if (_playerInZone)
         {
             pressX.SetActive(true);
             FollowObject(player);
             if (Input.GetKeyUp("x"))
             {
-                _animator.Play(outfits[outfitsPicker]);
-                outfitsPicker = (outfitsPicker+1)%2;
-                player.outfit = outfitsPicker;
-
+                player.outfit = (player.outfit+1)%2;
+                _animator.SetBool("changedClothes", player.outfit==1);
                 player.gameObject.GetComponent<BattleItemScript>().item.Use(); // removes current item, if there is one, so it can be set Inactive
             }
         }

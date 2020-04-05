@@ -5,17 +5,21 @@ using UnityEngine;
 public class AttackCollider : MonoBehaviour
 {
     public float damage;
-    protected double _attackTime;
+    public double attackTime;
+    public Animator animator;
 
     protected virtual void Start(){
-        _attackTime = 0.5;
+        animator = PlayerMovement.instance.animator;
+        if (CompareTag("PlayerAttack")) { 
+            animator.SetBool("attacking", true);
+        }
     }
 
     protected virtual void Update(){
-        _attackTime -= Time.deltaTime;
+        attackTime -= Time.deltaTime;
         if (CompareTag("PlayerAttack")) { PlayerMovement.instance.lockMovement = true; }
 
-         if (_attackTime <= 0 ){
+         if (attackTime <= 0 ){
             Destroy(gameObject);
         }
     }
@@ -29,6 +33,10 @@ public class AttackCollider : MonoBehaviour
     }
 
     protected void OnDestroy(){
-        if (CompareTag("PlayerAttack")) { PlayerMovement.instance.lockMovement = false; }
+        if (CompareTag("PlayerAttack")) { 
+            animator.SetBool("attacking", false);
+            animator.speed = 1; // resets animator speed
+            PlayerMovement.instance.lockMovement = false; 
+        }
     }
 }

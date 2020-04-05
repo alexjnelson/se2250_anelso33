@@ -16,6 +16,7 @@ public class Combat : MonoBehaviour
 
     void Start(){
         attackCooldown = 0;
+        anim = PlayerMovement.instance.animator;
     }
 
     void Update(){
@@ -34,8 +35,10 @@ public class Combat : MonoBehaviour
             GameObject attack = Instantiate(AttackHitBox, gameObject.transform.position + facingDirection, Quaternion.identity); //spawns a boxcollider in the attack range
             attack.GetComponent<AttackCollider>().damage = _item.item.damage * GetComponent<Stats>().attack;
             attack.GetComponent<BoxCollider2D>().size = new Vector3(rangeX, rangeZ, 1);
+            attack.GetComponent<AttackCollider>().attackTime = _attackCooldownTime;
             attack.tag = gameObject.CompareTag("Player") ? "PlayerAttack" : "EnemyAttack";
 
+            anim.speed = 0.43f/(float)_attackCooldownTime; // this changes the speed of the attack animation so it lasts as long as the attack
             attackCooldown = _attackCooldownTime;
         }
     }

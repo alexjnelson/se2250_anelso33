@@ -35,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7045621937987254344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.21052162, y: 0.7177213, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5854388, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -104,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 47226707
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300040, guid: 3627a891ac7c4364498beee91509dac2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3627a891ac7c4364498beee91509dac2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -208,19 +208,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  animator: {fileID: 676147035668915921}
   coords: {fileID: 0}
   level: 0
   skillTokens: 0
-  facingDirection: {x: 1, y: 0, z: 0}
+  facingDirection: {x: 0, y: -1, z: 0}
   outfit: 1
   basicMelee: {fileID: 11400000, guid: 5f4147cf8352a534a92e1acd2363a5de, type: 2}
   basicRanged: {fileID: 11400000, guid: 51924466c0bffe14b8ad67ddff7e4abe, type: 2}
   levelsCleared: 0
   allowExit: 1
-  lockMovement: 1
-  outfits:
-  - Idle
-  - IdleChangedClothes
+  lockMovement: 0
 --- !u!114 &114009005595913012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +235,7 @@ MonoBehaviour:
     type: 3}
   AttackHitBoxRanged: {fileID: 5503020888547925354, guid: fd8721ab881b4114c9268c44795139bb,
     type: 3}
-  facingDirection: {x: 1, y: 0, z: 0}
+  facingDirection: {x: 0, y: -1, z: 0}
   attackCooldown: 0
 --- !u!114 &7045621937987254343
 MonoBehaviour:

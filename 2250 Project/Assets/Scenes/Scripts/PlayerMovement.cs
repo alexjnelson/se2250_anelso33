@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private Rigidbody2D myRigidbody;
     private Vector3 change;
-    private Animator animator;
+    public Animator animator;
 
     public GameObject coords;
     
@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     public int levelsCleared = 0;
     public bool allowExit = true, lockMovement = false; // lock movement only applies to melee player
-    public string[] outfits = { "Idle", "IdleChangedClothes" };
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         
         animator = GetComponent<Animator>();
+        animator.SetBool("changedClothes", outfit==1);
     }
 
     // Update is called once per frame
@@ -43,23 +43,13 @@ public class PlayerMovement : MonoBehaviour
         change.y = Input.GetAxisRaw("Vertical");
         if (outfit==1 || !lockMovement) { updateAnimationAndMove(); }
 
-        if (outfit == 0){
-            if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Combat>().attackCooldown <= 0) {
-                animator.SetBool("attacking", true);
-                animator.Play("Attacking");
-                gameObject.GetComponent<Combat>().Attack();
-            }
-            else
-            {
-                animator.SetBool("attacking", false);
-            }
+        if (Input.GetKeyDown(KeyCode.Space) && outfit==0 && !animator.GetBool("moving")) {
+            gameObject.GetComponent<Combat>().Attack();
         }
-        
-        else if (outfit == 1){
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                gameObject.GetComponent<Combat>().AttackRanged();
-            }
+        else if (Input.GetKeyDown(KeyCode.Space) && outfit==1) {
+            gameObject.GetComponent<Combat>().AttackRanged();
         }
+
 
         if (Input.GetKey("left shift")) {
             speed = defaultSpeed * 1.8f;

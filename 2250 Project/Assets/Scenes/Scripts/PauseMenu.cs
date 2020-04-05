@@ -172,6 +172,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Save(int saveNumber){
         player.Save(saveNumber);
+        player.animator.SetBool("changedClothes", player.outfit==1);
     }
 
     public void Load(int saveNumber){

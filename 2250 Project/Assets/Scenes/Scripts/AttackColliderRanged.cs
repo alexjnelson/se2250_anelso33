@@ -9,8 +9,10 @@ public class AttackColliderRanged : AttackCollider
     public int speed;
 
     override protected void Start(){
-        _attackTime = 3;
+        attackTime = 3;
         myRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        animator = PlayerMovement.instance.animator;
+        animator.SetBool("attacking", false);
     }
 
     override protected void Update(){
@@ -24,6 +26,9 @@ public class AttackColliderRanged : AttackCollider
 
     override protected void OnTriggerEnter2D (Collider2D collision){
         base.OnTriggerEnter2D(collision);
-        Destroy(gameObject);
+        if (!collision.isTrigger){
+             Destroy(gameObject);
+        }
+       
     }
 }
