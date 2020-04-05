@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scenes\Scripts\HealthUI.cs" />
      <Compile Include="Assets\Scenes\Scripts\InventoryScript.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\BossFight.cs" />
+     <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level0.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level1.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level2.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level3.cs" />

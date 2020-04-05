@@ -7,6 +7,7 @@ public class Level1 : MonoBehaviour
     protected int enemiesSpawned = 0, enemiesToSpawn = 2, levelNumber = 1;
     public GameObject enemy;
     public Transform target1, target2;
+    private string _storyText ="'Who are these hostiles in my house? They look like trees... What did they do with my mother?'";
 
     void Update()
     {
@@ -15,6 +16,7 @@ public class Level1 : MonoBehaviour
                 SpawnEnemies();
                 enemiesSpawned = enemiesToSpawn;
                 PlayerMovement.instance.allowExit = false;
+                GameObject.Find("MenuOverlay").GetComponent<PauseMenu>().ShowStory(_storyText);
             }
             else if (PlayerMovement.instance.levelsCleared<levelNumber && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
                 PlayerMovement.instance.levelsCleared = levelNumber;

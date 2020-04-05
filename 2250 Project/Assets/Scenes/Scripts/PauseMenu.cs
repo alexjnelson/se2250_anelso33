@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool paused, viewingBag, viewingSkills, viewingSaves, viewingLoads;
-    public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox, healthUI, saveManager, loadManager, saveDeny;
+    public static bool paused, viewingBag, viewingSkills, viewingSaves, viewingLoads, viewingStory;
+    public static string storyTextString;
+    public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox, healthUI, 
+        saveManager, loadManager, saveDeny, storyBoard, storyText;
 
     public Transform itemsContainer;
     public GameObject [] slots;
@@ -30,6 +32,11 @@ public class PauseMenu : MonoBehaviour
         saveDeny.SetActive(false);
         healthUI.SetActive(true);
 
+        if (viewingStory){
+            UpdateStoryText();
+            storyBoard.SetActive(true);
+        }
+
         slots = new GameObject [24];
         Transform [] slotChildren = itemsContainer.GetComponentsInChildren<Transform>();
 
@@ -49,6 +56,11 @@ public class PauseMenu : MonoBehaviour
         if (player == null){
             player = PlayerMovement.instance;
             playerStats = player.gameObject.GetComponent<Stats>();
+        }
+
+        if (viewingStory){
+            UpdateStoryText();
+            storyBoard.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)){
@@ -77,8 +89,12 @@ public class PauseMenu : MonoBehaviour
         healthUI.SetActive(true);
         pauseMenuUI.SetActive(false);
         saveDeny.SetActive(false);
+        storyBoard.SetActive(false);
+        viewingStory = false;
         Time.timeScale = 1f;
         paused = false;
+
+        print("bbbb");
     }
 
     void Pause(){
@@ -179,6 +195,19 @@ public class PauseMenu : MonoBehaviour
         CameraMovement.playerSave = saveNumber == 0 ? save0 : saveNumber == 1 ? save1 : save2;
         Application.LoadLevel(0);
         Resume();
+    }
+
+    public void ShowStory(string text){
+        storyTextString = text; 
+        storyBoard.SetActive(true);
+        viewingStory = true;
+
+        Time.timeScale = 0f;
+        paused = true;
+    }
+
+    public void UpdateStoryText(){
+        storyText.GetComponent<Text>().text = storyTextString;
     }
 
 }
