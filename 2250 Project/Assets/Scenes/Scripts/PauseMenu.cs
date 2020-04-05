@@ -192,7 +192,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Load(int saveNumber){
         CameraMovement.playerSave = saveNumber == 0 ? save0 : saveNumber == 1 ? save1 : save2;
-        Application.LoadLevel(0);
+        Application.LoadLevel(CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared);
         Resume();
     }
 
