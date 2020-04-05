@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour
         healthUI.SetActive(true);
 
         if (viewingStory){
+            paused = true;
             UpdateStoryText();
             storyBoard.SetActive(true);
         }
@@ -93,8 +94,6 @@ public class PauseMenu : MonoBehaviour
         viewingStory = false;
         Time.timeScale = 1f;
         paused = false;
-
-        print("bbbb");
     }
 
     void Pause(){
