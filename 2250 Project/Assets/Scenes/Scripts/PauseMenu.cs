@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     public static bool paused, viewingBag, viewingSkills, viewingSaves, viewingLoads, viewingStory, viewingDeath, gameStarted = false;
     public static string storyTextString;
     public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox, healthUI, 
-        saveManager, loadManager, saveDeny, storyBoard, storyText, deathMessage, saveDataMessage;
+        saveManager, loadManager, saveDeny, storyBoard, storyText, deathMessage, saveDataMessage, saveSuccessMessage, saveFailedMessage;
 
     public Transform itemsContainer;
     public GameObject [] slots;
@@ -28,6 +28,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         deathMessage.SetActive(false);
         saveDataMessage.SetActive(false);
+        saveSuccessMessage.SetActive(false);
+        saveFailedMessage.SetActive(false);
         bag.SetActive(false);
         skillUpgrades.SetActive(false);
         saveManager.SetActive(false);
@@ -197,6 +199,8 @@ public class PauseMenu : MonoBehaviour
 
     public void CloseSaves(){
         viewingSaves = false;
+        saveSuccessMessage.SetActive(false);
+        saveFailedMessage.SetActive(false);
         saveManager.SetActive(false);
     }
 
@@ -212,8 +216,14 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Save(int saveNumber){
-        player.Save(saveNumber);
-        player.animator.SetBool("changedClothes", player.outfit==1);
+        if (player.levelsCleared>0){
+            player.Save(saveNumber);
+            player.animator.SetBool("changedClothes", player.outfit==1);
+            saveSuccessMessage.SetActive(true);
+        }
+        else{
+            saveFailedMessage.SetActive(true);
+        }
     }
 
     public void Load(int saveNumber){
@@ -226,7 +236,6 @@ public class PauseMenu : MonoBehaviour
             Application.LoadLevel(CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared);
             Resume(); 
         }
-
     }
 
     public void ShowStory(string text){
