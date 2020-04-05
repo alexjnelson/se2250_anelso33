@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: LongSword
   m_EditorClassIdentifier: 
   itemName: LongSword
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 4acffd307df1af143bc1c9b4dbf909d9, type: 3}
   damage: 75
   rangeX: 1
   rangeZ: 1
   attackSpeed: 1.8
+  active: {fileID: 21300000, guid: e1f6c43b1a9246a4cb61152b2158abbc, type: 3}
+  inactive: {fileID: 21300000, guid: 4acffd307df1af143bc1c9b4dbf909d9, type: 3}

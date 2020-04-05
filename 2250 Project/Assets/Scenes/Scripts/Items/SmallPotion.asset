@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SmallPotion
   m_EditorClassIdentifier: 
   itemName: Small Potion
-  itemSprite: {fileID: 21300656, guid: 2d7e8c9d83e7d7644ae01b49b9b2b795, type: 3}
+  itemSprite: {fileID: 21300000, guid: 801eb443504555940a0f928a13d25f27, type: 3}
   health: 20
