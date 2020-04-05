@@ -41,14 +41,17 @@ public class PlayerMovement : MonoBehaviour
 
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-        if (outfit==1 || !lockMovement) { updateAnimationAndMove(); }
 
-        if (Input.GetKeyDown(KeyCode.Space) && outfit==0 && !animator.GetBool("moving")) {
+        if (Input.GetKeyDown(KeyCode.Space) && outfit==0) {
+            animator.SetBool("moving", false);
+            change = Vector3.zero;
             gameObject.GetComponent<Combat>().Attack();
         }
         else if (Input.GetKeyDown(KeyCode.Space) && outfit==1) {
             gameObject.GetComponent<Combat>().AttackRanged();
         }
+
+        if (outfit==1 || !lockMovement) { updateAnimationAndMove(); }
 
 
         if (Input.GetKey("left shift")) {
