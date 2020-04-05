@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -106,6 +107,12 @@ public class PlayerMovement : MonoBehaviour
         if (saveNumber < 3){
             string path = "Assets/SaveFiles/" + saveNumber.ToString() + "/PlayerSave" + ".prefab";
             PrefabUtility.SaveAsPrefabAssetAndConnect(gameObject, path, InteractionMode.UserAction);
+        }
+    }
+
+    void OnDestroy(){
+        if (GetComponent<Health>().health<=0){ // only does death actions if player was killed, not on reload
+            GameObject.Find("MenuOverlay").GetComponent<PauseMenu>().ShowDeathMessage();
         }
     }
 

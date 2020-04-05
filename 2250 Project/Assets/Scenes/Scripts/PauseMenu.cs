@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool paused, viewingBag, viewingSkills, viewingSaves, viewingLoads, viewingStory, gameStarted = false;
+    public static bool paused, viewingBag, viewingSkills, viewingSaves, viewingLoads, viewingStory, viewingDeath, gameStarted = false;
     public static string storyTextString;
     public GameObject pauseMenuUI, bag, skillUpgrades, attackTextBox, defenseTextBox, skillPointsTextBox, healthUI, 
-        saveManager, loadManager, saveDeny, storyBoard, storyText;
+        saveManager, loadManager, saveDeny, storyBoard, storyText, deathMessage, saveDataMessage;
 
     public Transform itemsContainer;
     public GameObject [] slots;
@@ -24,7 +24,10 @@ public class PauseMenu : MonoBehaviour
         viewingSkills = false;
         viewingSaves = false;
         viewingLoads = false;
+        viewingDeath = false;
         pauseMenuUI.SetActive(false);
+        deathMessage.SetActive(false);
+        saveDataMessage.SetActive(false);
         bag.SetActive(false);
         skillUpgrades.SetActive(false);
         saveManager.SetActive(false);
@@ -36,10 +39,6 @@ public class PauseMenu : MonoBehaviour
             paused = true;
             UpdateStoryText();
             if (SceneManager.GetActiveScene().name!="StartingRoom") { storyBoard.SetActive(true); }
-        }
-        if (!gameStarted){
-            Pause();
-            gameStarted=true;
         }
 
         slots = new GameObject [24];
@@ -58,7 +57,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (player == null){
+        if (player == null && !viewingDeath){
             player = PlayerMovement.instance;
             playerStats = player.gameObject.GetComponent<Stats>();
         }
@@ -67,10 +66,20 @@ public class PauseMenu : MonoBehaviour
             UpdateStoryText();
             storyBoard.SetActive(true);
         }
+        if (!gameStarted){
+            UpdateStoryText();
+            Pause();
+            gameStarted=true;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape)){
-            if (paused && !viewingBag && !viewingSkills && !viewingSaves && !viewingLoads){
+            if (paused && !viewingBag && !viewingSkills && !viewingSaves && !viewingLoads && !viewingDeath){
                 Resume();
+                print("ff");
+            }
+            else if (viewingDeath){
+                print("R");
+                ReturnToMainMenu();
             }
             else if (viewingBag){
                 CloseBag();
@@ -93,7 +102,10 @@ public class PauseMenu : MonoBehaviour
     public void Resume(){
         healthUI.SetActive(true);
         pauseMenuUI.SetActive(false);
-        saveDeny.SetActive(false);        
+        saveDeny.SetActive(false);    
+
+        viewingDeath = false;
+        deathMessage.SetActive(false); 
         
         Time.timeScale = 1f;
         paused = false;
@@ -195,6 +207,7 @@ public class PauseMenu : MonoBehaviour
 
     public void CloseLoading(){
         viewingLoads = false;
+        saveDataMessage.SetActive(false);
         loadManager.SetActive(false);
     }
 
@@ -205,8 +218,15 @@ public class PauseMenu : MonoBehaviour
 
     public void Load(int saveNumber){
         CameraMovement.playerSave = saveNumber == 0 ? save0 : saveNumber == 1 ? save1 : save2;
-        Application.LoadLevel(CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared);
-        Resume();
+        if (CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared==0){
+            saveDataMessage.SetActive(true);
+        }
+        else {
+            saveDataMessage.SetActive(false);
+            Application.LoadLevel(CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared);
+            Resume(); 
+        }
+
     }
 
     public void ShowStory(string text){
@@ -219,6 +239,20 @@ public class PauseMenu : MonoBehaviour
 
     public void UpdateStoryText(){
         storyText.GetComponent<Text>().text = storyTextString;
+    }
+
+    public void ShowDeathMessage(){
+        paused = true;
+        Time.timeScale = 0f;
+
+        viewingDeath = true;
+        deathMessage.SetActive(true);
+    }
+
+    public void ReturnToMainMenu(){
+        Resume();
+        print("r");
+        Application.LoadLevel(SceneManager.sceneCountInBuildSettings-1);
     }
 
 }

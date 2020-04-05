@@ -7,7 +7,7 @@ public class Level1 : MonoBehaviour
     protected int enemiesSpawned = 0, enemiesToSpawn = 2, levelNumber = 1;
     public GameObject enemy;
     public Transform target1, target2;
-    private string _storyText ="'Who are these hostiles in my house? They look like trees... What did they do with my mother?'";
+    private string _storyText ="'Who are these hostiles in my house? They look like trees... What did they do with my mother?'\nYou burst into an uncontrollable rage.";
 
     void Update()
     {
