@@ -7,6 +7,7 @@ public class ExpBar : MonoBehaviour
 {
     public int experience = 0;
 
+    // this is called when an enemy dies. It increases the player's collected exp and checks if it is enough to level up
     public void GainExperience(int experience)
     {
         if ((this.experience += experience) >= GetThreshold(PlayerMovement.instance.level))

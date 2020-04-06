@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour
         saveDeny.SetActive(false);
         healthUI.SetActive(true);
 
-        if (viewingStory){
+        if (viewingStory){ // at the beginning of a scene, the story text is updated if this level hadn't been cleared yet
             paused = true;
             UpdateStoryText();
             if (SceneManager.GetActiveScene().name!="StartingRoom") { 
@@ -45,15 +45,16 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        if(!gameStarted){
+        if(!gameStarted){ // at game start, the pause menu is brought up
             Pause();
         }
 
+        // initializes the inventory slots - there are 24 spaces for bag items. There aren't actually 24 enemies to drop items, though
         slots = new GameObject [24];
         Transform [] slotChildren = itemsContainer.GetComponentsInChildren<Transform>();
 
         int i = 0;
-        foreach (Transform child in slotChildren){
+        foreach (Transform child in slotChildren){ // this ensures only slot objects are considered
             if (child.parent==itemsContainer){
                 slots[i++] = child.gameObject;
             }
@@ -134,6 +135,8 @@ public class PauseMenu : MonoBehaviour
         paused = true;
     }
 
+    // this initializes the inventory when the bag is opened. Items in the bag are put into inventory slots, and when there are not enough
+    // items in the bag to fill every slot, these subsequent slots are ensured to be empty
     public void FillBag(){
         List<Item> playerItems = player.gameObject.GetComponent<Bag>().items;
 
@@ -177,6 +180,9 @@ public class PauseMenu : MonoBehaviour
         viewingSkills = false;
     }
 
+    // this, along with the following method, provide the interface for the player to upgrade their skills. If they have skill tokens,
+    // the clicked-on skill will be upgraded by 0.5. A skill is a multiplier applied to either damage dealt or received (atk and def respectively)
+    // stats are refreshed to update the GUI upon upgrade
     public void UpgradeAttack(){
         if (player.skillTokens > 0){
             playerStats.attack += 0.5f;
@@ -219,6 +225,7 @@ public class PauseMenu : MonoBehaviour
         loadManager.SetActive(false);
     }
 
+    // saves the player's data in the clicked-on slot. If the player has not completed level 1, data cannot be saved.
     public void Save(int saveNumber){
         if (player.levelsCleared>0){
             player.Save(saveNumber);
@@ -230,6 +237,8 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // when a load option is selected, it is first verified that any load data is stored there. If there is, this player instance is
+    // sent to the Camera script where it is applied to the scene; the last level cleared by that player is loaded
     public void Load(int saveNumber){
         CameraMovement.playerSave = saveNumber == 0 ? save0 : saveNumber == 1 ? save1 : save2;
         if (CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared==0){
@@ -242,6 +251,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // this displays the story text as the game progresses
     public void ShowStory(string text){
         storyTextString = text;  
         viewingStory = true;

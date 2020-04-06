@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
+    // this allows for common stats between players and enemies and is referenced by combat
     public float attack, defense;
 }

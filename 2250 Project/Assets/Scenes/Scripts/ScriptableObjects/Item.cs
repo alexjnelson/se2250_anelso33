@@ -9,7 +9,7 @@ public class Item : ScriptableObject
     public Sprite itemSprite; 
 
     public virtual void Use(){
-        // placeholder
+        // placeholder; this is overriden in specific objects
     }
 
 }

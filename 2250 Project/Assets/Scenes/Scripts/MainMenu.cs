@@ -32,6 +32,8 @@ public class MainMenu : MonoBehaviour
         loadManager.SetActive(false);
     }
 
+    // when a load option is selected, it is first verified that any load data is stored there. If there is, this player instance is
+    // sent to the Camera script where it is applied to the scene; the last level cleared by that player is loaded
     public void Load(int saveNumber){
         CameraMovement.playerSave = saveNumber == 0 ? save0 : saveNumber == 1 ? save1 : save2;
         if (CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared==0){
