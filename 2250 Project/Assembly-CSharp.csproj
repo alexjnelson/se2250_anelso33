@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level2.cs" />
      <Compile Include="Assets\Scenes\Scripts\LevelClearances\Level3.cs" />
      <Compile Include="Assets\Scenes\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Mom.cs" />
      <Compile Include="Assets\Scenes\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scenes\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scenes\Scripts\SceneChange.cs" />

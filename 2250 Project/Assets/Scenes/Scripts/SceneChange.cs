@@ -11,7 +11,7 @@ public class SceneChange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && PlayerMovement.instance.allowExit == true)
+        if ((other.CompareTag("Player")||other.CompareTag("Mom")) && PlayerMovement.instance.allowExit == true)
         {
             StartCoroutine(LoadAsyncScene(other.gameObject));           
         }

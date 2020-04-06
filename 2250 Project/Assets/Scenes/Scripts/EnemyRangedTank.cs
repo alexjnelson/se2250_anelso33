@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyRangedTank : EnemyRanged
 {
     public Item GoldenSword, GoldenLauncher;
-    private string _storyText = "Mom is trapped... She says they took the keys into the cave to the North.";
+    private string _storyText = "It's mom! You saved her! And such ends our noble quest...";
 
     override protected void GenerateDroppedItem(){
         droppedItem = PlayerMovement.instance.outfit == 0 ? GoldenSword : GoldenLauncher;
