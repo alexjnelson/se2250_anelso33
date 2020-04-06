@@ -19,16 +19,22 @@ public class Combat : MonoBehaviour
         anim = PlayerMovement.instance.animator;
     }
 
+    // update determines the parameters of the gameobject's attack as they may be subject to change when swapping weaponry
+    // this method also handles cooldowns on attacks; an attack cannot be made while the cooldown is above 0
+    // finally, this method determines the direction in which an attack was made
     void Update(){
          _item = gameObject.GetComponent<BattleItemScript>();
         rangeX = _item.item.rangeX;
         rangeZ = _item.item.rangeZ;
-        _attackCooldownTime = 1.0 / _item.item.attackSpeed;
+        // since an item's attack speed is the amount of times it can hit per second, the cooldown timer is the inverse
+        _attackCooldownTime = 1.0 / _item.item.attackSpeed; 
 
         attackCooldown = attackCooldown <= 0 ? 0 : attackCooldown - Time.deltaTime;
         facingDirection = gameObject.CompareTag("Player") ? GetComponent<PlayerMovement>().facingDirection : GetComponent<Enemy>().facingDirection;
     }
 
+    // this method handles melee attacks. It sets the size of the hitbox and hitbox damage according to weapon parameteres, and
+    // tells the hitbox what type of attack it is using tags
     public void Attack()
     {
         if (attackCooldown <= 0){
@@ -39,10 +45,12 @@ public class Combat : MonoBehaviour
             attack.tag = gameObject.CompareTag("Player") ? "PlayerAttack" : "EnemyAttack";
 
             anim.speed = 0.43f/(float)_attackCooldownTime; // this changes the speed of the attack animation so it lasts as long as the attack
-            attackCooldown = _attackCooldownTime;
+            attackCooldown = _attackCooldownTime; // begins counting down the cooldown timer
         }
     }
 
+    // the same as above, but for a ranged attack. This also determines the speed of projectiles and tells the hitbox
+    // what direction is should move in.
     public void AttackRanged(){
         if (attackCooldown <= 0){
             GameObject attack = Instantiate(AttackHitBoxRanged, gameObject.transform.position + facingDirection, Quaternion.identity); //spawns a boxcollider in the attack range

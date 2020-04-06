@@ -59,7 +59,7 @@
      <Compile Include="Assets\Scenes\Scripts\BattleItemScript.cs" />
      <Compile Include="Assets\Scenes\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scenes\Scripts\Combat.cs" />
-     <Compile Include="Assets\Scenes\Scripts\customization.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Customization.cs" />
      <Compile Include="Assets\Scenes\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scenes\Scripts\EnemyRanged.cs" />
      <Compile Include="Assets\Scenes\Scripts\EnemyRangedTank.cs" />

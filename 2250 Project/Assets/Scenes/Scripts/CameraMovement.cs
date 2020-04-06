@@ -14,7 +14,8 @@ public class CameraMovement : MonoBehaviour
     public Vector2 minPosition;
 
 
-    // Start is called before the first frame update
+    // this method loads the appropriate player script; if a save is requested, it loads that; otherwise it loads a new player. It then sets the
+    // camera's focus to be this player.
     void Start()
     {
         if (GameObject.FindWithTag("Player")==null && playerSave == null){
@@ -26,7 +27,7 @@ public class CameraMovement : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
     }
 
-    // Update is called once per frame
+    // late update moves the camera to follow the player's position
     void LateUpdate()
     {
         if (transform.position != target.position)

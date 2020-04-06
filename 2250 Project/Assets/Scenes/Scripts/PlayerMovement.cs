@@ -26,52 +26,51 @@ public class PlayerMovement : MonoBehaviour
     public int levelsCleared = 0;
     public bool allowExit = true, lockMovement = false; // lock movement only applies to melee player
 
-    // Start is called before the first frame update
+    // instance allows player to be called from any script
     void Start()
     {
         instance = this;
         myRigidbody = GetComponent<Rigidbody2D>();
         
         animator = GetComponent<Animator>();
-        animator.SetBool("changedClothes", outfit==1);
+        animator.SetBool("changedClothes", outfit==1); // determines if the player had changed clothes
     }
 
-    // Update is called once per frame
     void Update() {
-        change = Vector3.zero;
+        // resets movement direction vector, then accepts a value based on keyboard input (either WASD or arrow keys)
+        change = Vector3.zero; 
 
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
 
+        // checks for an attack instruction, and then checks the player's outfit to determine the attack type
         if (Input.GetKeyDown(KeyCode.Space) && outfit==0) {
-            animator.SetBool("moving", false);
+            animator.SetBool("moving", false); // restricts movement in animation for melee attack
             change = Vector3.zero;
             gameObject.GetComponent<Combat>().Attack();
         }
         else if (Input.GetKeyDown(KeyCode.Space) && outfit==1) {
             gameObject.GetComponent<Combat>().AttackRanged();
         }
-
+        // if movement is not locked, player may move
         if (outfit==1 || !lockMovement) { updateAnimationAndMove(); }
 
-
+        // while left shift is held, player can sprint
         if (Input.GetKey("left shift")) {
             speed = defaultSpeed * 1.8f;
         }
         else {
             speed = defaultSpeed;
         }
-
-        if (Input.GetKey("p")){
-            Save(0);
-        }
     }
 
+    // when a battle item is clicked in the bag, it deselects itself and must be reverted to a default item stored in this script
     public void ResetItem(){
         if (outfit == 0) { GetComponent<BattleItemScript>().setItem(basicMelee); }
         else { GetComponent<BattleItemScript>().setItem(basicRanged); }
     }
 
+    // moves player and sets a public vector indicating the direction the player is facing; this is used for attacks.
     void updateAnimationAndMove()
     {
         if (change != Vector3.zero)
@@ -87,15 +86,15 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("moving", false);
         }
-        //print(change);
     }
-
+    
+    // performs movement
     void MoveCharacter()
     {
         myRigidbody.MovePosition(transform.position + Vector3.Normalize(change) * speed * Time.deltaTime);
     }
 
-
+    // typically called from the EXP script, but can be called from LevelOrbs. Provides the player with a point to upgrade a skill upon leveling up
     public void LevelUp()
     {
         this.level++;
@@ -103,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
         print("Level Up!");
     }
 
+    // saves the current state of the player to be loaded in later; up to 3 different save files can be maintained
     public void Save(int saveNumber){
         if (saveNumber < 3){
             string path = "Assets/SaveFiles/" + saveNumber.ToString() + "/PlayerSave" + ".prefab";
@@ -110,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // when the player dies, a death message is shown and the main menu can be accessed
     void OnDestroy(){
         if (GetComponent<Health>().health<=0){ // only does death actions if player was killed, not on reload
             GameObject.Find("MenuOverlay").GetComponent<PauseMenu>().ShowDeathMessage();

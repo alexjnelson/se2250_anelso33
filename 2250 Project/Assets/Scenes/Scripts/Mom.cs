@@ -14,9 +14,13 @@ public class Mom : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    // similar to enemy script, tracks player location and moves towards
     void Update()
     {   
         currentPosition = transform.position;
+        animator.SetFloat("moveX", change.x);
+        animator.SetFloat("moveY", change.y);
+        
         if (PlayerMovement.instance.levelsCleared == 3){
             MoveToPlayer(PlayerMovement.instance.gameObject.transform.position);
         }
