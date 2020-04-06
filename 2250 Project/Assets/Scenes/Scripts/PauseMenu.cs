@@ -77,10 +77,8 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)){
             if (paused && !viewingBag && !viewingSkills && !viewingSaves && !viewingLoads && !viewingDeath){
                 Resume();
-                print("ff");
             }
             else if (viewingDeath){
-                print("R");
                 ReturnToMainMenu();
             }
             else if (viewingBag){
@@ -260,7 +258,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu(){
         Resume();
-        print("r");
         Application.LoadLevel(0);
     }
 
