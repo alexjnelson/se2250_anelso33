@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Outside.unity
     guid: 8396bf2a7842a494a8705e925e869d13
   - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: d98a86e2332708044a2a8de1580c1d01
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 8cfded90291ff6c44b5d688dabf29758
   m_configObjects: {}
