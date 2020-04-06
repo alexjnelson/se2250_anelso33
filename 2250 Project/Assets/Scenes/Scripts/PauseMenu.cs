@@ -233,7 +233,7 @@ public class PauseMenu : MonoBehaviour
         }
         else {
             saveDataMessage.SetActive(false);
-            Application.LoadLevel(CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared);
+            Application.LoadLevel(CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared+1);
             Resume(); 
         }
     }
@@ -261,7 +261,7 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToMainMenu(){
         Resume();
         print("r");
-        Application.LoadLevel(SceneManager.sceneCountInBuildSettings-1);
+        Application.LoadLevel(0);
     }
 
 }
