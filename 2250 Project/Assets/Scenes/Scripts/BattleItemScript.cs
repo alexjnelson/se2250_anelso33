@@ -7,6 +7,7 @@ public class BattleItemScript : MonoBehaviour
     public BattleItem battleItem;
 
     public void setItem(BattleItem newItem){
+        if (this.battleItem!=null) { this.battleItem.itemSprite = this.battleItem.inactive; }
         this.battleItem = newItem;
     }
 

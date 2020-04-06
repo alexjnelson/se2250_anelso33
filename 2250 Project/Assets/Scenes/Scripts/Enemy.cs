@@ -85,14 +85,7 @@ public class Enemy : MonoBehaviour
         }
         else if (change != Vector3.zero) {
             myRigidbody.MovePosition(currentPosition + change * speed * Time.deltaTime);
-            // animator.SetFloat("moveX", change.x);
-            // animator.SetFloat("moveY", change.y);
-            // animator.SetBool("moving", true);
-
             facingDirection = change;
-        }
-        else {
-            // animator.SetBool("moving", false);
         }
     }
 
@@ -111,7 +104,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnDestroy(){
+    virtual protected void OnDestroy(){
         if (GetComponent<Health>().health<=0){ // only does death actions if enemy was killed, not on reload
             if (droppedItem != null) { 
                 GameObject groundItem = Instantiate(groundItemPrefab, transform.position, Quaternion.identity);

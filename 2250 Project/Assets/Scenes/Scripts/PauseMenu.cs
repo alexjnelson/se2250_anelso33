@@ -40,7 +40,13 @@ public class PauseMenu : MonoBehaviour
         if (viewingStory){
             paused = true;
             UpdateStoryText();
-            if (SceneManager.GetActiveScene().name!="StartingRoom") { storyBoard.SetActive(true); }
+            if (SceneManager.GetActiveScene().name!="StartingRoom") { 
+                storyBoard.SetActive(true); 
+            }
+        }
+
+        if(!gameStarted){
+            Pause();
         }
 
         slots = new GameObject [24];

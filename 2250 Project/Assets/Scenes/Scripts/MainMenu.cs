@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void NewGame(){
+        CameraMovement.playerSave = null;
         Application.LoadLevel(1);
     }
 
@@ -39,6 +40,7 @@ public class MainMenu : MonoBehaviour
         else {
             viewingLoads = false;
             saveDataMessage.SetActive(false);
+            PauseMenu.gameStarted = false;
             Application.LoadLevel(CameraMovement.playerSave.GetComponent<PlayerMovement>().levelsCleared+1);
         }
     }

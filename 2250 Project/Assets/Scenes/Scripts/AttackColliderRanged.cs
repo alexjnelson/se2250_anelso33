@@ -26,7 +26,7 @@ public class AttackColliderRanged : AttackCollider
 
     override protected void OnTriggerEnter2D (Collider2D collision){
         base.OnTriggerEnter2D(collision);
-        if (!collision.isTrigger){
+        if (!collision.isTrigger && !collision.CompareTag("Enemy")){
              Destroy(gameObject);
         }
        

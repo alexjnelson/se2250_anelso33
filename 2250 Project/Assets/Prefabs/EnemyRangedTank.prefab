@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  trackingDistance: 15
+  trackingDistance: 100
   droppedItem: {fileID: 0}
   LevelOrb: {fileID: 11400000, guid: e4890baf3cf280445994e7d121dc2542, type: 2}
   SmallPotion: {fileID: 11400000, guid: 8884b7e521da6f8499072d8448eba3f4, type: 2}
@@ -233,6 +233,6 @@ MonoBehaviour:
     type: 3}
   expDropped: 16
   facingDirection: {x: 0, y: 0, z: 0}
-  attackRange: 15
+  attackRange: 25
   GoldenSword: {fileID: 11400000, guid: 5829c3230bd00d84ea10d4de8e8a5dad, type: 2}
   GoldenLauncher: {fileID: 11400000, guid: 3257a37dc8aa18c42996c62d7a0bcac8, type: 2}

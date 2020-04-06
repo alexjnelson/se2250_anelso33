@@ -7,7 +7,7 @@ public class Level3 : MonoBehaviour
     protected int enemiesSpawned = 0, enemiesToSpawn = 10, levelNumber = 3;
     public GameObject enemyMelee, enemyRanged, enemyGuard, enemyRangedTank;
     public Transform melee1, melee2, ranged1, melee3, melee4, ranged2, ranged3, guard1, guard2, rangedtank;
-    private string _storyText ="'These fiends are everywhere... I bet they came from the spooky Northwest Forest!'";
+    private string _storyText ="Mom's voice resonates from deep within the forest...";
 
     void Update()
     {
