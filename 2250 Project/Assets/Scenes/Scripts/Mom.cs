@@ -6,10 +6,12 @@ public class Mom : MonoBehaviour
 {
     protected Vector3 change, currentPosition;
     Rigidbody2D myRigidbody;
+    Animator animator;
     public float speed = 8;
 
     void Start(){
         myRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -25,6 +27,10 @@ public class Mom : MonoBehaviour
 
         if (change != Vector3.zero && Vector3.Distance(playerPosition, currentPosition) > 3) {
             myRigidbody.MovePosition(currentPosition + change * speed * Time.deltaTime);
+            animator.SetBool("moving", true);
+        }
+        else{
+            animator.SetBool("moving", false);
         }
     }
 }
