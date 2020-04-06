@@ -5,8 +5,13 @@ using UnityEngine;
 public class GroundItem : MonoBehaviour
 {
     public Item item;
+    public BattleItem battleItem;
 
     void Update() {
+        if (item.GetType() == typeof(BattleItem)){ 
+            battleItem = (BattleItem) item; 
+            item.sprite = battleItem.inactive;
+        }
         GetComponent<SpriteRenderer>().sprite = item.itemSprite;
     }
 
