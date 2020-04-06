@@ -10,7 +10,7 @@ public class GroundItem : MonoBehaviour
     void Update() {
         if (item.GetType() == typeof(BattleItem)){ 
             battleItem = (BattleItem) item; 
-            item.sprite = battleItem.inactive;
+            item.itemSprite = battleItem.inactive;
         }
         GetComponent<SpriteRenderer>().sprite = item.itemSprite;
     }
