@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d18439e4cf99e49a1e9e7579ed6897, type: 3}
+  m_Name: OHKO
+  m_EditorClassIdentifier: 
+  itemName: OHKO
+  itemSprite: {fileID: 0}
+  damage: 1000
+  rangeX: 0.4
+  rangeZ: 0.4
+  attackSpeed: 0.8
+  active: {fileID: 0}
+  inactive: {fileID: 0}
